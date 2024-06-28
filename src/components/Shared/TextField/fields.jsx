@@ -1,0 +1,61 @@
+export const field = {
+  name: {
+    name: 'name',
+    type: 'text',
+    placeholder: 'Name*',
+    title: 'The name must be at least 3 characters long',
+    required: true,
+  },
+  email: {
+    name: 'email',
+    type: 'text',
+    placeholder: 'Email*',
+    required: true,
+  },
+  password: {
+    name: 'password',
+    type: 'password',
+    placeholder: 'Password (at least 8 characters)*',
+    required: true,
+    title: 'The password must be at least 8 characters long',
+  },
+  height: {
+    name: 'height',
+    type: 'text',
+    placeholder: 'Height (100-250 cm)*',
+    required: true,
+    title: 'Enter a valid integer from 100 to 250 cm.',
+  },
+  age: {
+    name: 'age',
+    type: 'text',
+    placeholder: 'Age (18-100 y)*',
+    required: true,
+    title: 'Enter a valid number from 18 to 100 years.',
+  },
+  weight: {
+    name: 'weight',
+    type: 'text',
+    placeholder: 'Current weight (20-250 kg)*',
+    required: true,
+    title: 'Enter a valid integer from 20 to 250 kg.',
+  },
+  desiredWeight: {
+    name: 'desiredWeight',
+    type: 'text',
+    placeholder: 'Desired weight (20-200 kg)*',
+    required: true,
+    title: 'Enter a valid integer from 20 to 200 kg.',
+  },
+  bloodType: {
+    name: 'bloodType',
+    type: 'text',
+    placeholder: 'Blood type*',
+    disabled: true,
+  },
+  filter: {
+    type: 'text',
+    name: 'filter',
+    placeholder: 'Filter by name',
+  },
+};

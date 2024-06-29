@@ -1,11 +1,13 @@
-import styled from 'styled-components';
-import { breakpoints } from 'helpers/breakpoints';
-import leaves from '../../helpers/images/leaves-aside-tablet.png';
-import leavesBig from '../../helpers/images/leaves-desktop-aside.png';
+@import '../../helpers/breakpoints';
+@import '../../helpers/images/leaves-aside-tablet.png';
+@import '../../helpers/images/leaves-desktop-aside.png';
 
-export const AsideBox = styled.aside`
+$sideBarColor: #ffffff;
+/* Set sidebar background color to white */
+
+.asideBox {
   margin: 0 -20px;
-  background: ${(p) => p.theme.sideBarColor};
+  background: $sideBarColor;
   padding: 40px 20px;
   min-width: 280px;
   min-height: 433px;
@@ -14,7 +16,7 @@ export const AsideBox = styled.aside`
   justify-content: center;
   gap: 40px;
 
-  @media ${breakpoints.minTablet} {
+  @media #{$minTablet} {
     margin: 0 -32px;
     width: 100%;
     min-height: 166px;
@@ -22,14 +24,14 @@ export const AsideBox = styled.aside`
     align-items: flex-start;
     justify-content: space-between;
     padding: 80px 88px;
-    background-image: url(${leaves});
+    background-image: url('../../helpers/images/leaves-aside-tablet.png');
     background-repeat: no-repeat;
     background-position: top -180px;
   }
 
-  @media ${breakpoints.desktop} {
+  @media #{$desktop} {
     margin: 0 -32px;
-    background: ${(p) => p.theme.sideBarColor};
+    background: $sideBarColor;
     margin-left: auto;
     gap: 60px;
     padding: 0;
@@ -38,14 +40,14 @@ export const AsideBox = styled.aside`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url(${leavesBig});
+    background-image: url('../../helpers/images/leaves-desktop-aside.png');
     background-repeat: no-repeat;
     background-position: 0 -80%;
     overflow: auto;
   }
-`;
+}
 
-export const Title = styled.h2`
+.title {
   margin-bottom: 20px;
   font-weight: 700;
   font-size: 14px;
@@ -56,9 +58,9 @@ export const Title = styled.h2`
   @media screen and (min-width: 1280px) {
     margin-bottom: 38px;
   }
-`;
+}
 
-export const Div = styled.div`
+.div {
   min-width: 280px;
   max-width: 520px;
 
@@ -69,36 +71,35 @@ export const Div = styled.div`
   @media screen and (min-width: 1280px) {
     width: 290px;
   }
-`;
+}
 
-export const KcalList = styled.ul`
+.kcalList {
   display: flex;
   flex-direction: column;
   gap: 20px;
-`;
+}
 
-export const KcalItem = styled.li`
+.kcalItem {
   display: flex;
   justify-content: space-between;
+}
+
+$textBaseStyles: ` font-weight: 400;
+font-size: 14px;
+line-height: 17px;
+letter-spacing: 0.04em;
+color: #9b9faa;
 `;
 
-const textBaseStyles = `
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
-  letter-spacing: 0.04em;
-  color: #9b9faa;
-`;
+.text {
+  #{$textBaseStyles}
+}
 
-export const Text = styled.p`
-  ${textBaseStyles}
-`;
+.span {
+  #{$textBaseStyles}
+}
 
-export const Span = styled.span`
-  ${textBaseStyles}
-`;
-
-export const ProductList = styled.ul`
+.productList {
   display: flex;
   flex-direction: column;
   height: 200px;
@@ -116,4 +117,4 @@ export const ProductList = styled.ul`
   &::-webkit-scrollbar-thumb {
     background-color: #264061;
   }
-`;
+}

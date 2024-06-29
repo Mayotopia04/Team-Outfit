@@ -2,18 +2,18 @@ import React from 'react';
 import CalcForm from 'components/CalcForm';
 import { Container } from 'components/Container';
 import ThemeSwitcher from 'components/ThemeSwitcher';
-import { MainGrid, ThemeSwitcherBox } from './Home.styled';
+import styles from './Home.module.scss'; // Import SCSS module
 
 const Home = () => {
   return (
-    <Container>
-      <MainGrid>
+    <div className={styles.Container}>
+      <div className={styles.MainGrid}>
         <CalcForm />
-      </MainGrid>
-      <ThemeSwitcherBox>
+      </div>
+      <div className={styles.ThemeSwitcherBox}>
         <ThemeSwitcher />
-      </ThemeSwitcherBox>
-    </Container>
+      </div>
+    </div>
   );
 };
 

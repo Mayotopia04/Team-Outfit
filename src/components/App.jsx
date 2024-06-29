@@ -1,7 +1,7 @@
 import UserRoutes from './Routes/UserRoutes';
 import Header from './Header';
 import Modal from './Modal';
-import Button from 'components/Shared/Button';
+import FoodModal from './Modal/FoodModal';
 
 export const App = () => {
 
@@ -9,12 +9,7 @@ export const App = () => {
     <>
       <Header />
       <UserRoutes />
-      <Modal children={
-        <Button
-          text="Start losing weight"
-          type="button"
-          btnClass="btn"
-        />}/>
+      <Modal children={<FoodModal/>}/>
     </>
   );
 };

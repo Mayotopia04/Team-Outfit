@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import Spinner from 'react-spinners/CircleLoader';
+import Spinner from 'react-spinners/HashLoader';
 import s from '../Loader/Loader.module.css';
 
 export default function Loader({ size = 150 }) {

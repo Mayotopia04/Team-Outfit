@@ -1,0 +1,12 @@
+
+.Thumb {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between
+};
+
+@media (min-width: 1032px){
+    .Thumb {
+        flex-direction:row
+    };
+};

@@ -1,0 +1,15 @@
+@import 'stylesheet/_mixins.scss';
+@import 'stylesheet/_vars.scss';
+
+.wrapper {
+  @include desktop-media {
+    padding-top: 80px;
+  }
+}
+
+.line {
+  border-bottom: 1px solid decorLine;
+  transform: rotate(90deg);
+  width: 32px;
+  margin: 9px 0 9px 20px;
+}

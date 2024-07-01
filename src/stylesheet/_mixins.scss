@@ -1,0 +1,41 @@
+@mixin centeredFlex($jusCon: center, $aliIte: center) {
+  display: flex;
+  justify-content: $jusCon;
+  align-items: $aliIte;
+}
+
+@mixin mobile-only-media {
+  @media screen and (min-width: $to-mobile) and (max-width: $mobile) {
+    @content;
+  }
+}
+
+@mixin mobile-media {
+  @media screen and (min-width: $mobile) {
+    @content;
+  }
+}
+
+@mixin to-tablet-media {
+  @media screen and (max-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin tablet-only-media {
+  @media screen and (min-width: $tablet) and (max-width: $to-desktop) {
+    @content;
+  }
+}
+
+@mixin tablet-media {
+  @media screen and (min-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin desktop-media {
+  @media screen and (min-width: $desktop) {
+    @content;
+  }
+}

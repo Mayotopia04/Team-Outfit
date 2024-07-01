@@ -1,0 +1,31 @@
+/* TEXT */
+$mainTextColor: #9b9faa;
+$secondaryTextColor: #212121;
+$accentTextColor: #fc842d;
+$lightTextColor: #ffffff;
+$darkTextColor: #264061;
+
+/* BACKGROUND */
+$mainBgnColor: #ffffff;
+$secondaryBgnColor: #f0f1f3;
+$accentBgnColor: #fc842d;
+$mobileMenuBgnColor: #264061;
+$mobileMenuBgnLineColor: #eff1f3;
+
+/* SHADOW */
+$boxShadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+
+/* BREAKPOINTS */
+$mobile: 320px;
+$tablet: 768px;
+$desktop: 1280px;
+$to-mobile: 320px;
+$to-tablet: 768px;
+$to-desktop: 1280px;
+
+// DECOR
+$decorLine: #e0e0e0;
+$activeDecorLine: #fc842d;
+
+// ANIMATION
+$animation: 350ms cubic-bezier(0.4, 0, 0.2, 1);

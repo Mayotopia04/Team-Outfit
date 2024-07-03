@@ -1,15 +1,11 @@
-import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { nanoid } from '@reduxjs/toolkit';
 import PropTypes from 'prop-types';
 
 import s from './DailyCalorieIntake.module.scss';
 
-import { items } from './items';
 import Button from 'components/Shared/Button';
 import products from '../../products.json';
-
-import daily from 'redux/daily-rate/daily-rate-selectors';
 
 
 const data = JSON.parse(localStorage.getItem("unregisteredUser"));

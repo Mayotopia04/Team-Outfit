@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 
 import s from './CalcForm.module.scss';
 
-import SideBar from 'components/SideBar';
 import TextField from '../Shared/TextField/TextField';
 import { field } from '../Shared/TextField/fields';
 import Button from '../Shared/Button/Button';
@@ -159,7 +158,6 @@ const CalcForm = () => {
           <Button text="Calculate" type="submit" btnClass="btn" />
         </div>
       </form>
-      <SideBar />
       <DailyCaloriesForm />
     </div>
   );

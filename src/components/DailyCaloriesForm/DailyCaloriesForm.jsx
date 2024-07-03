@@ -10,11 +10,9 @@ import Button from '../Shared/Button/Button';
 import TextField from '../Shared/TextField/TextField';
 import Modal from '../../components/Modal/Modal';
 import DailyCalorieIntake from 'components/DailyCalorieIntake';
-import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import Container from 'components/Shared/Container';
 import TextFieldDefault from 'components/Shared/TextFieldDefault/TextFieldDefault';
 
-import daily from 'redux/daily-rate/daily-rate-selectors';
 import { dailyRateInfo } from 'redux/daily-rate/daily-rate-operations';
 
 const DailyCaloriesForm = () => {
@@ -23,9 +21,6 @@ const DailyCaloriesForm = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const [bloodType, setActiveCheckbox] = useState('');
-
-  const dailyRateDate = useSelector(daily.dailyRate);
-  const errorDaily = useSelector(daily.getErrorDaily);
 
   const { control, handleSubmit, reset, register } = useForm({
     defaultValues: {
@@ -150,16 +145,7 @@ const DailyCaloriesForm = () => {
           <Button text="Start losing weight" type="submit" btnClass="btn" />
         </div>
       </form>
-      {modalOpen && <Modal setModalOpen={setModalOpen} children={<DailyCalorieIntake />} />}
-      {/* {modalOpen && dailyRateDate && (
-        <Modal setModalOpen={setModalOpen} children={<DailyCalorieIntake />} />
-      )}
-      {modalOpen && errorDaily && (
-        <Modal
-          setModalOpen={setModalOpen}
-          children={<ErrorMessage status={errorDaily} />}
-        />
-      )} */}
+      {modalOpen && <Modal setModalOpen={setModalOpen} children={<DailyCalorieIntake />} />}s
     </Container>
   );
 };

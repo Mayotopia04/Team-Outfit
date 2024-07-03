@@ -1,0 +1,33 @@
+@import 'helpers/breakpoints';
+
+.Container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+
+  @media #{breakpoints.tablet} {
+    padding: 0 32px;
+  }
+
+  @media #{breakpoints.desktop} {
+    padding: 0 64px;
+  }
+}
+
+.MainGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+
+  @media #{breakpoints.tablet} {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media #{breakpoints.desktop} {
+    gap: 32px;
+  }
+}
+
+.ThemeSwitcherBox {
+  margin-top: 24px;
+}

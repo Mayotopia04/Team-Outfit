@@ -1,7 +1,7 @@
 import UserRoutes from './Routes/UserRoutes';
 import Header from './Header';
 import Modal from './Modal';
-import FoodModal from './Modal/FoodModal';
+import DailyCalorieIntake from './DailyCalorieIntake';
 
 export const App = () => {
 
@@ -9,7 +9,7 @@ export const App = () => {
     <>
       <Header />
       <UserRoutes />
-      <Modal children={<FoodModal/>}/>
+      <Modal children={<DailyCalorieIntake/>}/>
     </>
   );
 };

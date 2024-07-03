@@ -7,21 +7,26 @@ import s from './DailyCalorieIntake.module.scss';
 
 import { items } from './items';
 import Button from 'components/Shared/Button';
+import products from '../../products.json';
 
 import daily from 'redux/daily-rate/daily-rate-selectors';
 
-const DailyCalorieIntake = () => {
-  const notAllowedProducts = useSelector(daily.notAllowedProducts);
-  const dailyRate = Math.round(useSelector(daily.dailyRate));
 
-  let itemsList = [];
-  if (notAllowedProducts.length === 0) {
-    itemsList = items;
-  } else {
-    for (let i = 0; i < 5; i += 1) {
-      itemsList[i] = notAllowedProducts[i];
-    }
-  }
+const data = JSON.parse(localStorage.getItem("unregisteredUser"));
+const gender = "F";
+
+// FORMULA FOR CALCULATING DAILY CALORIE NORMS FOR WOMEN 10 * weight + 6.25 * height - 5 * age - 161 - 10 * (weight - desired weight)
+// FORMULA FOR CALCULATING DAILY CALORIE NORMS FOR MEN 10 * weight + 6.25 * height - 5 * age - 5 - 10 * (weight - desired weight)
+  const partialCalories = 10 * data.weight + 6.25 * data.height - 5 * data.age - 161 - 10 * (data.weight - data.desiredWeight);
+  const calories = gender === "F" ? partialCalories - 161 : partialCalories - 5; 
+  const notAllowedProducts = products
+  .filter(product => product.groupBloodNotAllowed[data.bloodType] === true)
+  .map(product => product.title);
+
+
+const DailyCalorieIntake = () => {
+  // const notAllowedProducts = useSelector(daily.notAllowedProducts);
+  // const dailyRate = Math.round(useSelector(daily.dailyRate));
 
   function removeClassList() {
     document.querySelector('body').classList.remove('no-scroll');
@@ -29,47 +34,35 @@ const DailyCalorieIntake = () => {
 
   return (
     <>
-      <h2 className={s.modalTitle}>
-        Your recommended daily calorie intake is:
-      </h2>
-      <p className={s.modalText}>
-        {dailyRate}
-        <span className={s.textDescription}>kcal</span>
-      </p>
-      <div className={s.menuGroup}>
-        {itemsList.length > 0 && (
-          <>
-            <p className={s.menuGroupTitle}>
-              Products that are not recommended for use:
-            </p>
-            <ul className={s.menuGroupList}>
-              {itemsList.map(el => (
-                <li key={nanoid()} className={s.menuGroupItems}>
-                  {el}
-                </li>
-              ))}
-            </ul>
-          </>
-        )}
+      <div className={s.modalContent}>
+        <h2 className={s.modalTitle}>Your recommended daily calorie intake is</h2>
+        <p className={s.modalCalories}>{calories} kcal</p>
+        <div className={s.modalFoodContainer}>
+          <hr className={s.divider}/>
+          <p className={s.modalFood}>Foods you should not eat</p>
+          <ol className={s.modalFoodList}>
+            {notAllowedProducts.map(product => <li key={nanoid()} className={s.modalFoodListItem}>{product}</li>)}
+          </ol>
+        </div>
+        <Link to="/registration">
+          <Button
+            text="Start losing weight"
+            type="button"
+            btnClass="btn"
+            handleClick={removeClassList}
+          />
+        </Link>
       </div>
-      <Link to="/registration">
-        <Button
-          text="Start losing weight"
-          type="button"
-          btnClass="btn"
-          handleClick={removeClassList}
-        />
-      </Link>
     </>
   );
 };
 
 export default DailyCalorieIntake;
 
-DailyCalorieIntake.defaultProps = {
-  notAllowedProducts: () => {},
-  dailyRate: () => {},
-};
+// DailyCalorieIntake.defaultProps = {
+//   notAllowedProducts: () => {},
+//   dailyRate: () => {},
+// };
 
 DailyCalorieIntake.propTypes = {
   notAllowedProducts: PropTypes.func,

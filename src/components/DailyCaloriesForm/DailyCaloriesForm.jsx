@@ -150,7 +150,8 @@ const DailyCaloriesForm = () => {
           <Button text="Start losing weight" type="submit" btnClass="btn" />
         </div>
       </form>
-      {modalOpen && dailyRateDate && (
+      {modalOpen && <Modal setModalOpen={setModalOpen} children={<DailyCalorieIntake />} />}
+      {/* {modalOpen && dailyRateDate && (
         <Modal setModalOpen={setModalOpen} children={<DailyCalorieIntake />} />
       )}
       {modalOpen && errorDaily && (
@@ -158,7 +159,7 @@ const DailyCaloriesForm = () => {
           setModalOpen={setModalOpen}
           children={<ErrorMessage status={errorDaily} />}
         />
-      )}
+      )} */}
     </Container>
   );
 };

@@ -9,7 +9,6 @@ export const App = () => {
     <>
       <Header />
       <UserRoutes />
-      <Modal children={<DailyCalorieIntake/>}/>
     </>
   );
 };

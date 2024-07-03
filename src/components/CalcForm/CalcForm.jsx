@@ -13,6 +13,7 @@ import TextFieldDefault from 'components/Shared/TextFieldDefault/TextFieldDefaul
 
 import { dailyRateUser } from 'redux/daily-rate/daily-rate-operations';
 import { getUser } from 'redux/auth/auth-selectors';
+import DailyCaloriesForm from 'components/DailyCaloriesForm';
 
 const CalcForm = () => {
   const navigate = useNavigate();
@@ -159,6 +160,7 @@ const CalcForm = () => {
         </div>
       </form>
       <SideBar />
+      <DailyCaloriesForm />
     </div>
   );
 };

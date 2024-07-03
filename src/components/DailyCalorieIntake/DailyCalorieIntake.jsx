@@ -17,7 +17,7 @@ const gender = "F";
 
 // FORMULA FOR CALCULATING DAILY CALORIE NORMS FOR WOMEN 10 * weight + 6.25 * height - 5 * age - 161 - 10 * (weight - desired weight)
 // FORMULA FOR CALCULATING DAILY CALORIE NORMS FOR MEN 10 * weight + 6.25 * height - 5 * age - 5 - 10 * (weight - desired weight)
-  const partialCalories = 10 * data.weight + 6.25 * data.height - 5 * data.age - 161 - 10 * (data.weight - data.desiredWeight);
+  const partialCalories = 10 * data.weight + 6.25 * data.height - 5 * data.age - 10 * (data.weight - data.desiredWeight);
   const calories = gender === "F" ? partialCalories - 161 : partialCalories - 5; 
   const notAllowedProducts = products
   .filter(product => product.groupBloodNotAllowed[data.bloodType] === true)

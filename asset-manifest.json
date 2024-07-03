@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/react-homework-template/static/css/main.7acaea2f.css",
-    "main.js": "/react-homework-template/static/js/main.3357c793.js",
-    "static/js/668.98a3ae3b.chunk.js": "/react-homework-template/static/js/668.98a3ae3b.chunk.js",
-    "index.html": "/react-homework-template/index.html",
-    "main.7acaea2f.css.map": "/react-homework-template/static/css/main.7acaea2f.css.map",
-    "main.3357c793.js.map": "/react-homework-template/static/js/main.3357c793.js.map",
-    "668.98a3ae3b.chunk.js.map": "/react-homework-template/static/js/668.98a3ae3b.chunk.js.map"
+    "main.css": "/Team-Outfit/static/css/main.7acaea2f.css",
+    "main.js": "/Team-Outfit/static/js/main.33bb49a8.js",
+    "static/js/668.98a3ae3b.chunk.js": "/Team-Outfit/static/js/668.98a3ae3b.chunk.js",
+    "index.html": "/Team-Outfit/index.html",
+    "main.7acaea2f.css.map": "/Team-Outfit/static/css/main.7acaea2f.css.map",
+    "main.33bb49a8.js.map": "/Team-Outfit/static/js/main.33bb49a8.js.map",
+    "668.98a3ae3b.chunk.js.map": "/Team-Outfit/static/js/668.98a3ae3b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7acaea2f.css",
-    "static/js/main.3357c793.js"
+    "static/js/main.33bb49a8.js"
   ]
 }

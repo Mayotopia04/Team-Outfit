@@ -1,4 +1,3 @@
-import { dailyRateInfo } from '../../redux/daily-rate/daily-rate-operations';
 import { useDispatch } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
 
@@ -14,15 +13,15 @@ const Home = () => {
 
   const dispatch = useDispatch();
 
-  const onGetDailyRate = store => {
-    const action = dailyRateInfo(store);
-    dispatch(action);
-  };
+  // const onGetDailyRate = store => {
+  //   const action = dailyRateInfo(store);
+  //   dispatch(action);
+  // };
 
   return (
     <section className={s.home}>
-      <DailyCaloriesForm onSubmit={onGetDailyRate} />
-
+      {/* <DailyCaloriesForm onSubmit={onGetDailyRate} /> */}
+      <DailyCaloriesForm />
       {!isRetina && (
         <img className={s.imgDesktop} src={bcgDesktop} alt="background" />
       )}

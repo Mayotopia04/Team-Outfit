@@ -1,11 +1,8 @@
-import UserRoutes from './Routes/UserRoutes';
-import Modal from './Modal';
+import Home from './Home';
 
 export const App = () => {
 
   return (
-    <>
-      <UserRoutes />
-    </>
+      <Home/>
   );
 };

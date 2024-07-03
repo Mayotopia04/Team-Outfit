@@ -1,7 +1,9 @@
-import React from 'react'
+import Home from 'components/Home';
 
-export const Home = () => {
-    return (
-        <div>Home</div>
-    )
-}
+export const Login = () => {
+  return (
+      <div>Login</div>
+  );
+};
+
+

@@ -10,10 +10,10 @@ import Button from '../Shared/Button/Button';
 import TextField from '../Shared/TextField/TextField';
 import Modal from '../../components/Modal/Modal';
 import DailyCalorieIntake from 'components/DailyCalorieIntake';
-import Container from 'components/Shared/Container';
+import Container from 'components/Container';
 import TextFieldDefault from 'components/Shared/TextFieldDefault/TextFieldDefault';
 
-import { dailyRateInfo } from 'redux/daily-rate/daily-rate-operations';
+;
 
 const DailyCaloriesForm = () => {
   const dispatch = useDispatch();
@@ -42,7 +42,7 @@ const DailyCaloriesForm = () => {
     };
     e.preventDefault();
     localStorage.setItem('unregisteredUser', JSON.stringify(numberData));
-    dispatch(dailyRateInfo(numberData));
+    // dispatch(dailyRateInfo(numberData));
     setActiveCheckbox('');
     document.querySelector('body').classList.add('no-scroll');
     setModalOpen(true);

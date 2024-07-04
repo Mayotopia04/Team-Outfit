@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Team 1 Final Project",
   "private": true,
-  "homepage": "https://charl2on381.github.io/Slim_Mom_FE/",
+  "homepage": "https://goitacademy.github.io/Team-Outfit/",
   "dependencies": {
     "@hookform/error-message": "^2.0.0",
     "@reduxjs/toolkit": "^1.8.5",
@@ -27,6 +27,7 @@
     "react-responsive": "^9.0.0",
     "react-router-dom": "^6.4.0",
     "react-scripts": "5.0.1",
+    "react-toastify": "^10.0.5",
     "redux-persist": "^6.0.0",
     "sass": "^1.54.9",
     "web-vitals": "^2.1.3"

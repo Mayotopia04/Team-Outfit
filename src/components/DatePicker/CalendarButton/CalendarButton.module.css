@@ -1,0 +1,31 @@
+/* CalendarButton.module.css */
+.CalendarStyledBtn {
+  padding: 10px;
+  height: 48px;
+  background: transparent;
+  border: none;
+  transition: fill linear 200ms;
+}
+
+.CalendarStyledBtn:hover,
+.CalendarStyledBtn:focus {
+  cursor: pointer;
+}
+
+.CalendarStyledBtn.fill-theme {
+  fill: var(--modalBorderColor);
+}
+
+.Cross {
+  stroke: #212121;
+  transition: stroke linear 200ms;
+}
+
+.Cross:hover,
+.Cross:focus {
+  cursor: pointer;
+}
+
+.Cross.stroke-theme {
+  stroke: var(--modalBorderColor);
+}

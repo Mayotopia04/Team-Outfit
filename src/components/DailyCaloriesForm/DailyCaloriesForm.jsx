@@ -13,8 +13,6 @@ import DailyCalorieIntake from 'components/DailyCalorieIntake';
 import Container from 'components/Container';
 import TextFieldDefault from 'components/Shared/TextFieldDefault/TextFieldDefault';
 
-;
-
 const DailyCaloriesForm = () => {
   const dispatch = useDispatch();
 

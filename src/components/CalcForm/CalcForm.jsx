@@ -1,166 +1,134 @@
-import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useForm, Controller } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { useOutletContext, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { toast } from 'react-toastify';
 
-import s from './CalcForm.module.scss';
+import styles from './CalcForm.module.css';
+import Modal from 'components/Modal';
+import Loader from 'components/Loader';
+import APIs from 'services/API/API';
+import { calcSchema } from 'services/validation/calcSchema';
 
-import TextField from '../Shared/TextField/TextField';
-import { field } from '../Shared/TextField/fields';
-import Button from '../Shared/Button/Button';
-import TextFieldDefault from 'components/Shared/TextFieldDefault/TextFieldDefault';
+export default function CalcForm() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [state, setState] = useState('idle');
+  const [dailyRateCalc, setDailyRateCalc] = useState(null);
 
-import { dailyRateUser } from 'redux/daily-rate/daily-rate-operations';
-import { getUser } from 'redux/auth/auth-selectors';
-import DailyCaloriesForm from 'components/DailyCaloriesForm';
+  const { userId } = useParams();
+  const context = useOutletContext();
+  const currentValues = context?.userData || null;
+  const setDailyRate = context?.setDailyRate;
+  const savedValues = JSON.parse(window.localStorage.getItem('userParams'));
+  const checkedBloodType = currentValues?.bloodType;
 
-const CalcForm = () => {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-
-  const { _id } = useSelector(getUser);
-
-  let userData = {};
-  const dataFromUser = useSelector(getUser);
-  if (dataFromUser.userData) {
-    userData = dataFromUser.userData;
-  } else if (!Object.entries(dataFromUser).length) {
-    userData = JSON.parse(localStorage.getItem(`user_${_id}_userData`)) || {};
-  }
-
-  const [bloodType, setBloodType] = useState(userData.bloodType - 1);
-
-  const { control, register, handleSubmit, reset } = useForm({
-    defaultValues: {
-      weight: userData && userData.weight ? userData.weight : '',
-      height: userData && userData.height ? userData.height : '',
-      age: userData && userData.age ? userData.age : '',
-      desiredWeight:
-        userData && userData.desiredWeight ? userData.desiredWeight : '',
-      bloodType: userData && userData.bloodType ? userData.bloodType : '',
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(calcSchema),
+    defaultValues: savedValues || {
+      height: currentValues?.height || null,
+      age: currentValues?.age || null,
+      weight: currentValues?.weight || null,
+      desiredWeight: currentValues?.desiredWeight || null,
+      bloodType: currentValues?.bloodType || null,
     },
   });
 
-  const onSubmit = (data, e) => {
-    e.preventDefault();
-    const numberData = {
-      weight: Number(data.weight),
-      height: Number(data.height),
-      age: Number(data.age),
-      desiredWeight: Number(data.desiredWeight),
-      bloodType: Number(data.bloodType),
-    };
+  const onSubmit = async (params) => {
+    setState('pending');
+    toast.dismiss();
 
-    localStorage.setItem(`user_${_id}_userData`, JSON.stringify(numberData));
-    dispatch(dailyRateUser({ _id, ...numberData }));
-    reset();
-    navigate('/dairy');
+    if (userId) {
+      const { data } = await APIs.calculateDaylyAuthRequest(userId, params);
+      context?.setNotAllowedProducts(data.notAllowedProducts);
+      setDailyRate({
+        dailyRate: data?.dailyRate || data?.summaries[0]?.dailyRate,
+        kcalConsumed: data?.summaries[0]?.kcalConsumed,
+        kcalLeft: data?.summaries[0]?.kcalLeft || data?.dailyRate,
+        percentsOfDailyRate: data?.summaries[0]?.percentsOfDailyRate,
+      });
+    } else {
+      window.localStorage.setItem('userParams', JSON.stringify(params));
+      const { data } = await APIs.calculateDaylyRequest(params);
+      setDailyRateCalc(data);
+      setIsOpen(true);
+    }
+
+    setState('idle');
   };
 
-  return (
-    <div className={s.wrapper}>
-      <form onSubmit={handleSubmit(onSubmit)} className={s.form}>
-        <h1 className={s.title}>
-          Calculate your daily calorie intake right now
-        </h1>
-        <div className={s.formParts}>
-          <div className={s.formPart}>
-            <Controller
-              control={control}
-              name="height"
-              render={({ field: { onChange, value } }) => (
-                <TextField
-                  value={value}
-                  name={'height'}
-                  control={control}
-                  handleChange={onChange}
-                  {...field.height}
-                />
-              )}
-            />
-            <Controller
-              control={control}
-              name="age"
-              render={({ field: { onChange, value } }) => (
-                <TextField
-                  value={value}
-                  name={'age'}
-                  control={control}
-                  handleChange={onChange}
-                  {...field.age}
-                />
-              )}
-            />
-            <Controller
-              control={control}
-              name="weight"
-              render={({ field: { onChange, value } }) => (
-                <TextField
-                  value={value}
-                  name={'weight'}
-                  control={control}
-                  handleChange={onChange}
-                  {...field.weight}
-                />
-              )}
-            />
-          </div>
-          <div className={s.formPart}>
-            <Controller
-              control={control}
-              name="desiredWeight"
-              render={({ field: { onChange, value } }) => (
-                <TextField
-                  value={value}
-                  name={'desiredWeight'}
-                  control={control}
-                  handleChange={onChange}
-                  {...field.desiredWeight}
-                />
-              )}
-            />
-            <Controller
-              control={control}
-              name="bloodType"
-              render={({ field: { onChange, value } }) => (
-                <TextFieldDefault
-                  value={value}
-                  control={control}
-                  handleChange={onChange}
-                  {...field.bloodType}
-                />
-              )}
-            />
+  const { height, age, weight, desiredWeight, bloodType } = errors;
+  const errorMessage = height?.message || age?.message || weight?.message || desiredWeight?.message || bloodType?.message;
 
-            <div className={s.radioBlock}>
-              {[...Array(4)].map((_, idx) => (
-                <div key={idx} className={s.listRadio}>
-                  <label className={s.label}>
-                    <input
-                      {...register('bloodType', { required: true })}
-                      className={s.checkbox}
-                      type="radio"
-                      name="bloodType"
-                      checked={bloodType === idx}
-                      onClick={() => setBloodType(idx)}
-                      value={idx + 1}
-                      placeholder="Blood type"
-                    />
-                    <span className={s.fake}></span>
-                    <span className={s.text}>{idx + 1}</span>
-                  </label>
-                </div>
-              ))}
-            </div>
-          </div>
+  useEffect(() => {
+    if (errorMessage) {
+      toast.info(errorMessage);
+    }
+  }, [errorMessage]);
+
+  return (
+    <div className={styles.Thumb}>
+      <h1 className={styles.Title}>Calculate your daily calorie intake right now</h1>
+      <form className={styles.FormStyled} onSubmit={handleSubmit(onSubmit)}>
+        <div className={styles.LabelFirst}>
+          <label className={styles.FormLabel} htmlFor="height">
+            Height *
+            <input className={styles.TextInp} id="height" {...register('height')} />
+            <span className={styles.tooltiptext}>min. 100, max. 250</span>
+          </label>
+
+          <label className={styles.FormLabel} htmlFor="age">
+            Age *
+            <input className={styles.TextInp} id="age" {...register('age')} />
+            <span className={styles.tooltiptext}>min. 18, max. 100</span>
+          </label>
+
+          <label className={styles.FormLabel} htmlFor="weight">
+            Current weight *
+            <input className={styles.TextInp} id="weight" {...register('weight')} />
+            <span className={styles.tooltiptext}>min. 20, max. 500</span>
+          </label>
         </div>
-        <div className={s.buttonPosition}>
-          <Button text="Calculate" type="submit" btnClass="btn" />
+
+        <div className={styles.LabelFirst}>
+          <label className={styles.FormLabel} htmlFor="desiredWeight">
+            Desired weight *
+            <input className={styles.TextInp} id="desiredWeight" {...register('desiredWeight')} />
+            <span className={styles.tooltiptext}>min. 20, max. 500</span>
+          </label>
+
+          <label className={styles.FormLabel} htmlFor="bloodType">
+            <p className={styles.BloodTitle}>Blood type*</p>
+            <ul className={styles.List}>
+              {[1, 2, 3, 4].map((type) => (
+                <li key={type}>
+                  <input
+                    className={styles.RadioInp}
+                    {...register('bloodType')}
+                    id={`blood-inp-${type}`}
+                    type="radio"
+                    value={type}
+                    checked={type === +(watch('bloodType') ?? checkedBloodType)}
+                  />
+                  <label htmlFor={`blood-inp-${type}`}>{type}</label>
+                </li>
+              ))}
+            </ul>
+          </label>
+        </div>
+        <div className={styles.ButtonCon}>
+          <button className={styles.Button} type="submit">Start losing weight</button>
         </div>
       </form>
-      <DailyCaloriesForm />
+      {isOpen && dailyRateCalc && (
+        <Modal {...{ setIsOpen, dailyRateCalc, isOpen }} />
+      )}
+
+      {state === 'pending' && <Loader />}
     </div>
   );
-};
-
-export default CalcForm;
+}

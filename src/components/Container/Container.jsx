@@ -1,8 +1,10 @@
 import styles from './Container.module.css';
+import PropTypes from 'prop-types';
 
-const Container = ({ children }) => {
-    return <div className={styles.ContainerStyled}>{children}</div>;
-  };
-  
-export default Container;
+export const Container = ({ children }) => (
+  <div className={styles.ContainerStyled}>{children}</div>
+);
 
+Container.propTypes = {
+  children: PropTypes.node,
+};

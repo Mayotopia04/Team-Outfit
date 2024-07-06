@@ -1,7 +1,5 @@
-import React from 'react'
+import React from 'react';
 
 export const GoBackButton = () => {
-    return (
-        <div>GoBackButton</div>
-    )
-}
+  return <div>GoBackButton</div>;
+};

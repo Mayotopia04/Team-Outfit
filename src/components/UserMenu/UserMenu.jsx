@@ -1,7 +1,5 @@
-import React from 'react'
+import React from 'react';
 
 export const UserMenu = () => {
-    return (
-        <div>UserMenu</div>
-    )
-}
+  return <div>UserMenu</div>;
+};

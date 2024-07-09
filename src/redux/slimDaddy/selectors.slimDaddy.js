@@ -1,7 +1,1 @@
-import React from 'react'
-
-export const selectors = () => {
-    return (
-        <div>selectors</div>
-    )
-}
+export const getTheme = state => state.theme.mode;

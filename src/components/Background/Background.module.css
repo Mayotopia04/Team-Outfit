@@ -1,0 +1,27 @@
+/* Background.module.css */
+
+.background {
+  background-color: var(--color);
+  min-width: 320px;
+  position: relative;
+  width: 100%;
+  min-height: 850px;
+  flex-grow: 2;
+}
+
+@media (min-width: 768px) {
+  .background {
+    background-image: var(--backgroundImageTablet);
+    background-repeat: no-repeat;
+    background-position: right 0px bottom 0px, right -50px bottom 279px,
+      right 12px bottom 279px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .background {
+    background-image: var(--backgroundImageDesktop);
+    background-position: bottom right, bottom right;
+    background-repeat: no-repeat;
+  }
+}

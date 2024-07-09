@@ -1,0 +1,71 @@
+/* Define keyframes for animation */
+@keyframes animation {
+  50% {
+    color: rgb(252, 132, 45);
+  }
+}
+
+/* DateContainer styles */
+.DateContainer {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  margin-top: 40px;
+}
+
+@media (min-width: 768px) {
+  .DateContainer {
+    margin-top: 90px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .DateContainer {
+    margin-top: 220px;
+  }
+}
+
+/* DateString styles */
+.DateString {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+  display: flex;
+  align-items: center;
+  color: #212121;
+}
+
+@media (min-width: 768px) {
+  .DateString {
+    font-size: 34px;
+    line-height: 49px;
+  }
+}
+
+/* Conditional animation */
+.DateString.pending {
+  animation-name: animation;
+  animation-duration: 1000ms;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* MyCalendar styles */
+.MyCalendar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  transform: translateY(25%);
+  background: var(--modalColor);
+  /* Ensure --modalColor is defined */
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.MyCalendar button:disabled,
+.MyCalendar button:disabled.react-calendar__navigation__arrow {
+  background: var(--calendarColor);
+  /* Ensure --calendarColor is defined */
+}

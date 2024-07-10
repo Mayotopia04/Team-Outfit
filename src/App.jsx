@@ -1,55 +1,69 @@
-import { lazy, Suspense, useEffect, useState } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
-
-const Home = lazy(() => import('pages/Home'));
+import React, { useState } from 'react';
+import { Header, BurgerMenu, Background } from 'components';
+import PagesRoutes from 'PagesRoutes/PagesRoutes';
+import { ToastContainer, Zoom } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCurrentUser } from 'redux/auth/auth-operations';
+import { getAccessToken, getLoginStatus, getModalStatus } from 'redux/auth/auth-selector';
+import { useSearchParams } from 'react-router-dom';
+import { setAccessToken, setRefreshToken } from 'redux/auth/auth-slice';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 const App = () => {
-  const [isFetched, setIsFetched] = useState(false);
+  const [menuActive, setMenuActive] = useState(false);
+  const toggleNavMenu = () => {
+    setMenuActive(!menuActive);
+  };
+  const isLogin = useSelector(getLoginStatus);
+  const accessToken = useSelector(getAccessToken);
+
+  const [searchParams] = useSearchParams();
+  const accessTokenFromURL = searchParams.get('accessToken');
+  const refreshTokenFromURL = searchParams.get('refreshToken');
+  const dispatch = useDispatch();
+
+  const showModal = useSelector(getModalStatus);
 
   useEffect(() => {
-    // Simulating data fetching
-    const fetchData = async () => {
-      try {
-        // Simulate fetch delay
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        setIsFetched(true);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-        setIsFetched(false);
-      }
-    };
+    const body = document.querySelector('#root');
+    if (showModal) {
+      disableBodyScroll(body);
+    } else {
+      enableBodyScroll(body);
+    }
+  }, [showModal]);
 
-    fetchData();
-  }, []);
+  useEffect(() => {
+    if (accessTokenFromURL && refreshTokenFromURL) {
+      dispatch(setAccessToken(accessTokenFromURL));
+      dispatch(setRefreshToken(refreshTokenFromURL));
+    }
+  }, [accessTokenFromURL, refreshTokenFromURL, dispatch]);
 
-  return (
-    <Routes>
-      <Route path="/" element={<MainLayout isFetched={isFetched} />}>
-        {isFetched ? null : <Navigate to="/home" replace />}
-      </Route>
-      <Route path="/home" element={<Home />} />
-    </Routes>
-  );
-};
+  useEffect(() => {
+    if (!isLogin && accessToken) {
+      dispatch(getCurrentUser());
+    }
+  }, [dispatch, isLogin, accessToken]);
 
-const MainLayout = ({ isFetched }) => {
   return (
     <>
-      <ToastContainer />
-      <Suspense fallback={<div>Loading...</div>}>
-        {isFetched ? (
-          <div>
-            {/* Main layout content when data is fetched */}
-            <h1>Main Layout</h1>
-            <p>Main content goes here.</p>
-          </div>
-        ) : (
-          <div>Loading...</div>
-        )}
-      </Suspense>
+      <Background>
+        <Header menuActive={menuActive} setMenuActive={setMenuActive} />
+        {menuActive && <BurgerMenu toggleNavMenu={toggleNavMenu} />}
+        <PagesRoutes />
+      </Background>
+      <ToastContainer
+        autoClose={2000}
+        hideProgressBar
+        position="top-center"
+        theme="colored"
+        transition={Zoom}
+      />
     </>
   );
 };
-
 export default App;
+

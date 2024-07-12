@@ -7,11 +7,12 @@ export const handleRegistration = createAsyncThunk(
   async (data, { rejectWithValue }) => {
     try {
       const result = await api.signup(data);
-      toast.success(`Registration is success.`);
+      toast.success(`Registration is successful.`);
       return result;
     } catch (error) {
-      toast.error(`Sorry, registration failed. Try again.`);
-      return rejectWithValue(error.response.data.message || error.message);
+      const errorMessage = error?.response?.data?.message ?? `Sorry, registration failed. Try again.`;
+      toast.error(errorMessage);
+      return rejectWithValue(errorMessage);
     }
   }
 );
@@ -19,6 +20,18 @@ export const handleRegistration = createAsyncThunk(
 export const handleLogin = createAsyncThunk('users/login', async (data, { rejectWithValue }) => {
   try {
     const result = await api.login(data);
+    return result;
+  } catch (error) {
+    toast.error(
+      error?.response?.data?.message || 'Sorry, login failed. Check email and password. Try again.'
+    );
+    return rejectWithValue(error.response.data.message || error.message);
+  }
+});
+
+export const handleGoogleLogin = createAsyncThunk('users/googleLogin', async (data, { rejectWithValue }) => {
+  try {
+    const result = await api.googleLogin(data);
     return result;
   } catch (error) {
     toast.error(

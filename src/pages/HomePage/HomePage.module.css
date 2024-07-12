@@ -1,33 +1,21 @@
-@import 'helpers/breakpoints';
-
-.Container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 16px;
-
-  @media #{breakpoints.tablet} {
-    padding: 0 32px;
-  }
-
-  @media #{breakpoints.desktop} {
-    padding: 0 64px;
-  }
+.section {
+  padding-top: 32px;
+  padding-bottom: 32px;
 }
 
-.MainGrid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-
-  @media #{breakpoints.tablet} {
-    grid-template-columns: repeat(2, 1fr);
+@media screen and (min-width: 768px) {
+  .container {
+    min-height: 120vh;
   }
-
-  @media #{breakpoints.desktop} {
-    gap: 32px;
+  .section {
+    padding-top: 100px;
   }
 }
-
-.ThemeSwitcherBox {
-  margin-top: 24px;
+@media screen and (min-width: 1280px) {
+  .container {
+    min-height: 80vh;
+  }
+  .section {
+    padding-top: 140px;
+  }
 }

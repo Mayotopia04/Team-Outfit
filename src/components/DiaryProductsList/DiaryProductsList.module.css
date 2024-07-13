@@ -1,70 +1,36 @@
-.listProducts {
-  margin: 22px 0 65px;
-
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  height: 240px;
-
-  overflow-y: auto;
-}
-
-.listProducts::-webkit-scrollbar {
+.list::-webkit-scrollbar {
   width: 6px;
 }
 
-.listProducts::-webkit-scrollbar-track {
-  background: #f0f1f3;
+.list::-webkit-scrollbar-track {
+  padding-left: 20px;
+  background-color: var(--scroll-color);
 }
 
-.listProducts::-webkit-scrollbar-thumb {
-  background-color: #264061;
+.list::-webkit-scrollbar-thumb {
+  background-color: var(--third-color);
 }
 
-@media (min-width: 768px) {
-  .listProducts {
-    gap: 22px;
+@media screen and (max-width: 767px) {
+  .list {
+    margin-bottom: 60px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .list {
+    padding: 0 40px 0 0;
+    max-height: 250px;
     max-width: 610px;
-    height: 286px;
-    margin: 0 0 85px;
-    padding-right: 30px;
+    overflow: auto;
   }
 }
-
-@media (min-width: 1280px) {
-  .listProducts {
-    height: 280px;
-    margin: 60px auto 32px 0;
+@media screen and (min-width: 1280px) {
+  .list {
+    max-height: 300px;
+    max-width: 623px;
   }
 }
-
-.text {
-  height: 242px;
-  font-family: 'Jost';
-  font-weight: 400;
-  font-size: 28px;
-  line-height: 17px;
-  letter-spacing: 0.04em;
-
-  margin: 40px 0 50px;
-
-  color: #212121;
-}
-
-@media (min-width: 768px) {
-  .text {
-    width: 286px;
-    max-height: 610px;
-    margin-right: 22px;
-    margin-bottom: 130px;
-    line-height: 20px;
-    color: #212121;
-  }
-}
-
-@media (min-width: 1280px) {
-  .text {
-    height: 280px;
-    margin-bottom: 0;
-  }
+.error {
+  margin-bottom: 20px;
 }

@@ -1,0 +1,146 @@
+.title {
+  margin-bottom: 40px;
+
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.4;
+
+  color: var(--main-color);
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+    max-width: 471px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+
+    font-size: 26px;
+    line-height: 1.2;
+    text-align: center;
+  }
+}
+
+.list {
+  max-width: 330px;
+
+  padding: 0px 5px 4px 45px;
+
+  height: 149px;
+
+  overflow-x: hidden;
+
+  margin-top: 20px;
+  margin-bottom: 40px;
+
+  list-style: decimal;
+  color: var(--second-color);
+}
+
+.list::-webkit-scrollbar {
+  width: 6px;
+  height: 149px;
+}
+
+.list::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.list::-webkit-scrollbar-thumb {
+  height: 40px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+
+  background-color: var(--third-color);
+}
+
+@media screen and (min-width: 768px) {
+  .list {
+    max-width: 100%;
+    height: 100%;
+  }
+}
+
+.item:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.text {
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+
+  color: var(--second-color);
+}
+
+.textPrimary {
+  margin-bottom: 32px;
+
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.2;
+  text-align: center;
+  letter-spacing: 0.04em;
+
+  color: var(--third-color);
+}
+
+.textSecondary {
+  width: 280px;
+  padding-top: 20px;
+
+  border-top: 1px solid var(--border-color);
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+
+  color: var(--main-color);
+}
+
+@media screen and (min-width: 768px) {
+  .textSecondary {
+    width: 100%;
+    padding-top: 12px;
+  }
+}
+
+.textPrimarySpan {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 2.9;
+  text-align: center;
+  letter-spacing: 0.04em;
+
+  color: var(--third-color);
+}
+
+.navLink {
+  display: block;
+
+  width: 210px;
+  height: 44px;
+  padding: 13px 0px;
+
+  background: var(--accent-color);
+  box-shadow: var(--btn-box-shadow);
+
+  border: none;
+  border-radius: 30px;
+
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  letter-spacing: 0.04em;
+
+  color: var(--bg-color);
+
+  transition: all 250ms linear;
+}
+
+.navLink:hover,
+.navLink:focus {
+  background: var(--bg-color);
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+}

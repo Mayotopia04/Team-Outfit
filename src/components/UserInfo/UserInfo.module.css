@@ -1,0 +1,45 @@
+.block {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.text {
+  position: relative;
+  font-weight: 700;
+  line-height: 0.95;
+  padding: 15px 18px 13px 0;
+}
+.text::after {
+  position: absolute;
+  content: '';
+  top: 4px;
+  right: 0;
+  height: 32px;
+  width: 2px;
+  background-color: #e0e0e0;
+}
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 15px 0 13px 16px;
+  border: none;
+  font-weight: 700;
+  line-height: 0.95;
+}
+.btn:hover {
+  color: var(--second-color);
+}
+.btn:not(:last-child) {
+  margin-right: 20px;
+}
+.icon {
+  width: 12px;
+  height: 7px;
+}
+@media screen and (max-width: 767px) {
+  .userinfo {
+    position: absolute;
+    right: 20px;
+    top: 0;
+  }
+}

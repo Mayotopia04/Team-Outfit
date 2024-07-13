@@ -1,66 +1,43 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { getDailyIntake, getUserDailyDiet, getLoginStatus } from 'redux/auth/auth-selector';
+import { updateModalStatus } from 'redux/auth/auth-slice';
 import { nanoid } from '@reduxjs/toolkit';
-import PropTypes from 'prop-types';
 
-import s from './DailyCalorieIntake.module.scss';
+import s from '../DailyCalorieIntake/DailyCalorieIntake.module.css';
 
-import Button from 'components/Shared/Button';
-import products from '../../products.json';
+export default function DailyCalorieIntake() {
+  const dispatch = useDispatch();
 
+  const isLoggedIn = useSelector(getLoginStatus);
+  const navigateTo = isLoggedIn ? '/diary' : '/registration';
+  const getDiet = isLoggedIn ? getUserDailyDiet : getDailyIntake;
+  const dailyDiet = useSelector(getDiet);
 
-const data = JSON.parse(localStorage.getItem("unregisteredUser"));
-const gender = "F";
-
-// FORMULA FOR CALCULATING DAILY CALORIE NORMS FOR WOMEN 10 * weight + 6.25 * height - 5 * age - 161 - 10 * (weight - desired weight)
-// FORMULA FOR CALCULATING DAILY CALORIE NORMS FOR MEN 10 * weight + 6.25 * height - 5 * age - 5 - 10 * (weight - desired weight)
-  const partialCalories = 10 * data.weight + 6.25 * data.height - 5 * data.age - 10 * (data.weight - data.desiredWeight);
-  const calories = gender === "F" ? partialCalories - 161 : partialCalories - 5; 
-  const notAllowedProducts = products
-  .filter(product => product.groupBloodNotAllowed[data.bloodType] === true)
-  .map(product => product.title);
-
-
-const DailyCalorieIntake = () => {
-  // const notAllowedProducts = useSelector(daily.notAllowedProducts);
-  // const dailyRate = Math.round(useSelector(daily.dailyRate));
-
-  function removeClassList() {
-    document.querySelector('body').classList.remove('no-scroll');
-  }
+  const productsNotAllowed = dailyDiet?.notAllowedProduct?.map(el => (
+    <li key={nanoid()} className={s.item}>
+      <p className={s.text}>{el.title}</p>
+    </li>
+  ));
 
   return (
     <>
-      <div className={s.modalContent}>
-        <h2 className={s.modalTitle}>Your recommended daily calorie intake is</h2>
-        <p className={s.modalCalories}>{calories} kcal</p>
-        <div className={s.modalFoodContainer}>
-          <hr className={s.divider}/>
-          <p className={s.modalFood}>Foods you should not eat</p>
-          <ol className={s.modalFoodList}>
-            {notAllowedProducts.map(product => <li key={nanoid()} className={s.modalFoodListItem}>{product}</li>)}
-          </ol>
-        </div>
-        <Link to="/registration">
-          <Button
-            text="Start losing weight"
-            type="button"
-            btnClass="btn"
-            handleClick={removeClassList}
-          />
-        </Link>
-      </div>
+      <h2 className={s.title}>Your recommended daily calorie intake is</h2>
+      <p className={s.textPrimary}>
+        {dailyDiet?.calories} <span className={s.textPrimarySpan}>kcal</span>
+      </p>
+      <p className={s.textSecondary}>Foods you should not eat</p>
+      <ol className={s.list}>{productsNotAllowed}</ol>
+      <NavLink
+        className={s.navLink}
+        to={navigateTo}
+        onClick={() => {
+          dispatch(updateModalStatus(false));
+        }}
+      >
+        Start losing weight
+      </NavLink>
     </>
   );
-};
-
-export default DailyCalorieIntake;
-
-// DailyCalorieIntake.defaultProps = {
-//   notAllowedProducts: () => {},
-//   dailyRate: () => {},
-// };
-
-DailyCalorieIntake.propTypes = {
-  notAllowedProducts: PropTypes.func,
-  dailyRate: PropTypes.func,
-};
+}

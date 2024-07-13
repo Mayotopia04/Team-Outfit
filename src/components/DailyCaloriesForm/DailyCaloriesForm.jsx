@@ -1,173 +1,231 @@
 import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { useForm, Controller } from 'react-hook-form';
-import PropTypes from 'prop-types';
 
-import s from './DailyCaloriesForm.module.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCalorieIntake, getCalorieIntakeForUser } from 'redux/auth/auth-operations';
+import { getLoginStatus, getModalStatus } from 'redux/auth/auth-selector';
+import { updateModalStatus } from 'redux/auth/auth-slice';
 
-import { field } from '../Shared/TextField/fields';
-import Button from '../Shared/Button/Button';
-import TextField from '../Shared/TextField/TextField';
-import Modal from '../../components/Modal/Modal';
-import DailyCalorieIntake from 'components/DailyCalorieIntake';
-import Container from 'components/Container';
-import TextFieldDefault from 'components/Shared/TextFieldDefault/TextFieldDefault';
+import { Button, Modal, DailyCalorieIntake } from 'components';
 
-const DailyCaloriesForm = () => {
+import { toast } from 'react-toastify';
+import s from '../DailyCaloriesForm/DailyCaloriesForm.module.css';
+
+export default function DailyCaloriesForm() {
   const dispatch = useDispatch();
 
-  const [modalOpen, setModalOpen] = useState(false);
+  const [height, setHeight] = useState('');
+  const [age, setAge] = useState('');
+  const [currentWeight, setCurrentWeight] = useState('');
+  const [desiredWeight, setDesiredWeight] = useState('');
+  const [bloodType, setBloodType] = useState('');
 
-  const [bloodType, setActiveCheckbox] = useState('');
+  const showModal = useSelector(getModalStatus);
+  const isLoggedIn = useSelector(getLoginStatus);
 
-  const { control, handleSubmit, reset, register } = useForm({
-    defaultValues: {
-      weight: '',
-      height: '',
-      age: '',
-      desiredWeight: '',
-      bloodType: '',
-    },
-  });
+  const toggleModal = () => {
+    dispatch(updateModalStatus(!showModal));
+    document.body.style.overflowY = 'visible';
+  };
 
-  const onSubmit = (data, e) => {
-    const numberData = {
-      weight: Number(data.weight),
-      height: Number(data.height),
-      age: Number(data.age),
-      desiredWeight: Number(data.desiredWeight),
-      bloodType: Number(data.bloodType),
+  const resetForm = () => {
+    setHeight('');
+    setAge('');
+    setCurrentWeight('');
+    setDesiredWeight('');
+    setBloodType('');
+  };
+
+  const dispatchForm = () => {
+    const intakeData = {
+      height,
+      age,
+      currentWeight,
+      desiredWeight,
+      bloodType,
     };
-    e.preventDefault();
-    localStorage.setItem('unregisteredUser', JSON.stringify(numberData));
-    // dispatch(dailyRateInfo(numberData));
-    setActiveCheckbox('');
-    document.querySelector('body').classList.add('no-scroll');
-    setModalOpen(true);
-    reset();
+
+    return isLoggedIn
+      ? dispatch(getCalorieIntakeForUser(intakeData))
+      : dispatch(getCalorieIntake(intakeData));
+  };
+
+  const handleInputChange = ({ target: { name, value, checked = false } }) => {
+    const isButtonChecked = checked ? value : '';
+
+    switch (name) {
+      case 'height':
+        setHeight(value);
+        break;
+
+      case 'age':
+        setAge(value);
+        break;
+
+      case 'currentWeight':
+        setCurrentWeight(value);
+        break;
+
+      case 'desiredWeight':
+        setDesiredWeight(value);
+        break;
+
+      case 'firstType':
+        setBloodType(isButtonChecked);
+        break;
+
+      case 'secondType':
+        setBloodType(isButtonChecked);
+        break;
+
+      case 'thirdType':
+        setBloodType(isButtonChecked);
+        break;
+
+      case 'fourthType':
+        setBloodType(isButtonChecked);
+        break;
+
+      default:
+        return;
+    }
+  };
+
+  const onFormSubmit = event => {
+    event.preventDefault();
+
+    if (bloodType === '') {
+      return toast.warn('Please сhoose your blood type');
+    } else {
+      resetForm();
+      dispatchForm();
+      toggleModal();
+    }
   };
 
   return (
-    <Container>
-      <form onSubmit={handleSubmit(onSubmit)} className={s.form}>
-        <h1 className={s.title}>
-          Calculate your daily calorie intake right now
-        </h1>
-        <div className={s.formParts}>
-          <div className={s.formPart}>
-            <Controller
-              control={control}
+    <div className={s.formContainer}>
+      <h2 className={s.title}>Calculate your daily calorie intake right now</h2>
+      <form className={s.form} onSubmit={onFormSubmit}>
+        <div className={s.labelContainer}>
+          <label className={s.label} htmlFor="height">
+            <input
+              className={s.input}
+              onChange={handleInputChange}
+              value={height}
+              min="100"
+              max="300"
+              id="height"
+              type="number"
               name="height"
-              render={({ field: { onChange, value } }) => (
-                <TextField
-                  value={value}
-                  control={control}
-                  handleChange={onChange}
-                  {...field.height}
-                />
-              )}
+              placeholder="Height *"
+              required
             />
-            <Controller
-              control={control}
+          </label>
+
+          <label className={s.label} htmlFor="age">
+            <input
+              className={s.input}
+              onChange={handleInputChange}
+              value={age}
+              min="6"
+              max="130"
+              id="age"
+              type="number"
               name="age"
-              render={({ field: { onChange, value } }) => (
-                <TextField
-                  value={value}
-                  control={control}
-                  handleChange={onChange}
-                  {...field.age}
-                />
-              )}
+              placeholder="Age *"
+              required
             />
-            <Controller
-              control={control}
-              name="weight"
-              render={({ field: { onChange, value } }) => (
-                <TextField
-                  value={value}
-                  control={control}
-                  handleChange={onChange}
-                  {...field.weight}
-                />
-              )}
+          </label>
+
+          <label className={s.label} htmlFor="currentWeight">
+            <input
+              className={s.input}
+              onChange={handleInputChange}
+              value={currentWeight}
+              min="40"
+              max="270"
+              id="currentWeight"
+              type="number"
+              name="currentWeight"
+              placeholder="Current weight *"
+              required
             />
-          </div>
-          <div className={s.formPart}>
-            <Controller
-              control={control}
+          </label>
+
+          <label className={s.label} htmlFor="desiredWeight">
+            <input
+              className={s.input}
+              onChange={handleInputChange}
+              value={desiredWeight}
+              min="40"
+              max="270"
+              id="desiredWeight"
+              type="number"
               name="desiredWeight"
-              render={({ field: { onChange, value } }) => (
-                <TextField
-                  value={value}
-                  control={control}
-                  handleChange={onChange}
-                  {...field.desiredWeight}
-                />
-              )}
+              placeholder="Desired weight *"
+              required
             />
-            <Controller
-              control={control}
-              name="bloodType"
-              render={({ field: { onChange, value } }) => (
-                <TextFieldDefault
-                  value={value}
-                  control={control}
-                  handleChange={onChange}
-                  {...field.bloodType}
-                />
-              )}
-            />
-            <div className={s.radioBlock}>
-              {[...Array(4)].map((_, idx) => (
-                <div key={idx} className={s.listRadio}>
-                  <label className={s.label}>
-                    <input
-                      {...register('bloodType', { required: true })}
-                      className={s.checkbox}
-                      type="radio"
-                      name="bloodType"
-                      checked={idx === bloodType}
-                      onClick={() => setActiveCheckbox(idx)}
-                      value={idx + 1}
-                      placeholder="Blood type"
-                    />
-                    <span className={s.fake}></span>
-                    <span className={s.text}>{idx + 1}</span>
-                  </label>
-                </div>
-              ))}
-            </div>
+          </label>
+
+          <p className={s.textBloodType}>Blood type *</p>
+
+          <div>
+            <label className={s.labelRadio}>
+              <input
+                className={s.inputRadio}
+                onChange={handleInputChange}
+                type="radio"
+                name="firstType"
+                checked={bloodType === '1'}
+                value={1}
+              />
+
+              <span className={s.numbers}>1</span>
+            </label>
+            <label className={s.labelRadio}>
+              <input
+                className={s.inputRadio}
+                onChange={handleInputChange}
+                type="radio"
+                name="secondType"
+                checked={bloodType === '2'}
+                value={2}
+              />
+
+              <span className={s.numbers}>2</span>
+            </label>
+            <label className={s.labelRadio}>
+              <input
+                className={s.inputRadio}
+                onChange={handleInputChange}
+                type="radio"
+                name="thirdType"
+                checked={bloodType === '3'}
+                value={3}
+              />
+
+              <span className={s.numbers}>3</span>
+            </label>
+            <label className={s.labelRadio}>
+              <input
+                className={s.inputRadio}
+                onChange={handleInputChange}
+                type="radio"
+                name="fourthType"
+                checked={bloodType === '4'}
+                value={4}
+              />
+
+              <span className={s.numbers}>4</span>
+            </label>
           </div>
         </div>
         <div className={s.buttonPosition}>
-          <Button text="Start losing weight" type="submit" btnClass="btn" />
+          <Button text="Start losing weight" width={210} />
         </div>
       </form>
-      {modalOpen && <Modal setModalOpen={setModalOpen} children={<DailyCalorieIntake />} />}s
-    </Container>
+
+      {showModal && <Modal onClose={toggleModal} component={<DailyCalorieIntake />} />}
+    </div>
   );
-};
-
-export default DailyCaloriesForm;
-
-DailyCaloriesForm.defaultProps = {
-  onSubmit: () => {},
-  dailyRateDate: () => {},
-  errorDaily: () => {},
-  onChange: () => {},
-  data: {},
-};
-
-DailyCaloriesForm.propTypes = {
-  onSubmit: PropTypes.func,
-  dailyRateDate: PropTypes.func,
-  errorDaily: PropTypes.func,
-  onChange: PropTypes.func,
-  data: PropTypes.shape({
-    weight: PropTypes.string,
-    height: PropTypes.string,
-    age: PropTypes.string,
-    desiredWeight: PropTypes.string,
-    bloodType: PropTypes.string,
-  }),
-};
+}

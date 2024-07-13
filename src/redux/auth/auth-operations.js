@@ -10,8 +10,9 @@ export const handleRegistration = createAsyncThunk(
       toast.success(`Registration is success.`);
       return result;
     } catch (error) {
-      toast.error(`Sorry, registration failed. Try again.`);
-      return rejectWithValue(error.response.data.message || error.message);
+      const errorMessage = error?.response?.data?.message ?? `Sorry, registration failed. Try again.`;
+      toast.error(errorMessage);
+      return rejectWithValue(errorMessage);
     }
   }
 );
@@ -108,8 +109,6 @@ export const saveNewPassword = createAsyncThunk(
     }
   }
 );
-
-// Password Recovery By Charlton
 
 export const getKeyVerify = createAsyncThunk('users/key', async (data, { rejectWithValue }) => {
   try {

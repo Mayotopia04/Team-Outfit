@@ -1,45 +1,42 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import DiaryProductsItem from 'components/DiaryProductsItem';
-import styles from './DiaryProductsList.module.css';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getDailyMeals } from 'redux/products/products-operations';
+import { DiaryProductsItem, Loader } from 'components';
 
-export default function DiaryProductsList({
-  products,
-  handleDeleteProduct,
-  isDeliting,
-}) {
+import s from './DiaryProductsList.module.css';
+
+const DiaryProductsList = () => {
+  const { dailyMeals, date, isLoading, error } = useSelector(state => state.products);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (!date) return;
+    dispatch(getDailyMeals({ date: date }));
+  }, [dispatch, date]);
+
+  const showMeals = dailyMeals?.length > 0 && !error && !isLoading;
+  const noMeals = dailyMeals?.length === 0 && !error && !isLoading;
+
   return (
     <>
-      {products?.length > 0 ? (
-        <ul className={styles.listProducts}>
-          {products.map(product => (
+      {isLoading && <Loader />}
+      {error && <p>{error.message}</p>}
+      {showMeals && (
+        <ul className={s.list}>
+          {dailyMeals.map(i => (
             <DiaryProductsItem
-              handleDeleteProduct={handleDeleteProduct}
-              key={product.id}
-              id={product.id}
-              name={product.title}
-              weight={product.weight}
-              kcal={product.kcal}
-              isDeliting={isDeliting === product.id}
+              key={i._id}
+              id={i._id}
+              product={i.product}
+              grams={i.grams}
+              calories={i.calories}
             />
           ))}
         </ul>
-      ) : (
-        <p className={styles.text}>Please, add product!</p>
       )}
+      {noMeals && <p className={s.error}>You haven't added any meal this day.</p>}
     </>
   );
-}
-
-DiaryProductsList.propTypes = {
-  products: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string,
-      kcal: PropTypes.number,
-      title: PropTypes.string,
-      weight: PropTypes.number,
-    })
-  ),
-  handleDeleteProduct: PropTypes.func,
-  isDeleting: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
 };
+
+export default DiaryProductsList;

@@ -13,6 +13,7 @@ const BurgerMenu = ({ toggleNavMenu }) => {
     .filter(item => item.private)
     .map(({ id, to, text }) => (
       // <NavLink className={getLinkClassName} to={to} onClick={() => setMenuActive(!menuActive)}>
+      // так почему-то не работает(происходит ошибка и перезагрузка страницы), нужна функция обертка
       <li className={s.item} key={id}>
         <NavLink className={getLinkClassName} to={to} onClick={() => toggleNavMenu()}>
           {text}

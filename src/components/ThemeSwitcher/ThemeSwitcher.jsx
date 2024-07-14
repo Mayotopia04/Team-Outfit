@@ -37,7 +37,7 @@ const ThemeSwitcher = () => {
                 root.style.setProperty('--scroll-color', '#f0f1f3');
                 root.style.setProperty('--third-color', '#264061');
                 root.style.setProperty('--input-color', '#9b9faa');
-                root.style.setProperty('--option-color', '#fbc0414d');
+                root.style.setProperty('--option-color', '#f8af28');
                 root.style.setProperty('--logo-filter', '#ffff');
                 break;
         }

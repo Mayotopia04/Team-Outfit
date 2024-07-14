@@ -22,9 +22,11 @@
   padding: 15px 18px 15px 0;
   color: var(--main-color);
 }
+
 .link:hover {
   color: var(--second-color);
 }
+
 .activeLink {
   composes: link;
   color: var(--second-color);
@@ -35,5 +37,4 @@
   text-align: center;
 }
 
-    position: fixed;
-}
+/* position: fixed; */

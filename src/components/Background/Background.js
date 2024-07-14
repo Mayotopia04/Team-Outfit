@@ -21,7 +21,14 @@ const Background = ({ children }) => {
 
   return (
     <>
-      <div className={style}>{children}</div>
+      <div className={style}>{children}
+        <div className={s.leafContainer}>
+          <div className={`${s.leaf} ${s['leaf-first']}`}></div>
+          <div className={`${s.leaf} ${s['leaf-second']}`}></div>
+          <div className={`${s.leaf} ${s['leaf-third']}`}></div>
+          <div className={`${s.leaf} ${s['leaf-fourth']}`}></div>
+        </div>
+      </div>
     </>
   );
 };

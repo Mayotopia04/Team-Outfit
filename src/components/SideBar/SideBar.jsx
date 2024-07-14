@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { getDailyMeals } from 'redux/products/products-operations';
 import { DiaryDateСalendar } from '../';
-import categories from '../../categories.json';
+//import categories from '../../categories.json';
 import s from './SideBar.module.css';
 
 const SideBar = () => {
@@ -50,7 +50,7 @@ const SideBar = () => {
     !userDailyDiet?.categories;
 
   const handleBtnClick = e => {
-    
+
     if (e.target.textContent === activeCategory) {
       setProductsShown(false);
       setActiveCategory('');
@@ -97,7 +97,7 @@ const SideBar = () => {
           )}
         </section>
         <section className={s.section}>
-          <h2 className={s.title}>Food not recommended</h2>
+          <h2 className={s.title}>Foods not recommended</h2>
           {showInfo && (
             <ul className={s.list}>
               {userDailyDiet?.categories?.map((element, index) => (
@@ -123,7 +123,7 @@ const SideBar = () => {
           </ul>
         </section>
       )}
-    
+
     </div>
   );
 };

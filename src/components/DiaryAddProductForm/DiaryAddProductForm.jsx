@@ -4,7 +4,9 @@ import Select from 'react-select';
 import debounce from 'lodash.debounce';
 
 import { getProductsByQuery, addMeal } from '../../redux/products/products-operations';
-import useWindowDimensions from '../../services/hooks/useWindowDimensions';
+//import useWindowDimensions from '../../services/hooks/useWindowDimensions';
+import useWindowDimensions from 'services/api/hooks/useWindowDimensions';
+
 import { Button, ButtonPlus } from 'components';
 import s from './DiaryAddProductForm.module.css';
 
@@ -112,11 +114,11 @@ const DiaryAddProductForm = () => {
             unstyled
             classNamePrefix="react-select"
             styles={colourStyles}
-            
+
           />
         </label>
-       
-          <label className={s.label}>
+
+        <label className={s.label}>
           <input
             type="number"
             name="weight"
@@ -129,9 +131,6 @@ const DiaryAddProductForm = () => {
             onChange={handleInputChange}
           />
         </label>
-       
-        
-        
 
         {width < 768 && <Button text="Add" width={176} />}
 

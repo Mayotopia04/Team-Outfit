@@ -6,6 +6,8 @@ import storage from 'redux-persist/lib/storage';
 import productsReducer from './products/products-slice';
 import authReducer from './auth/auth-slice';
 
+import { themeSliceReducer } from './themeswitcher/slice.themeswitcher';
+
 const persistAuthConfig = {
     key: 'user-token',
     storage,
@@ -14,10 +16,21 @@ const persistAuthConfig = {
 
 const persistedAuthReducer = persistReducer(persistAuthConfig, authReducer);
 
+
+const persistThemeSwitch = {
+  key: 'theme',
+  storage,
+};
+
+const persistedThemeSwitcher = persistReducer(persistThemeSwitch,themeSliceReducer)
+
+
 const rootReducer = combineReducers({
     auth: persistedAuthReducer,
     products: productsReducer,
+    theme: persistedThemeSwitcher,
 });
+
 
 export const store = configureStore({
     reducer: rootReducer,

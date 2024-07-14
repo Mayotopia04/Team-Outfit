@@ -44,6 +44,7 @@ input[data-autocompleted] {
   border-bottom: 1px solid var(--border-color);
   margin-bottom: 39px;
   padding-bottom: 19px;
+  background-color: var(--bg-color);
 }
 
 .formInput:focus {

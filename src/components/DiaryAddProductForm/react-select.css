@@ -6,8 +6,9 @@ div.react-select__control {
     border-radius: 0;
     /* color */
     border: none;
-    color: var(--second-color);
+    color: var(--input-color);
     border-bottom: 1px solid var(--border-color);
+    background-color: var(--bg-color);
   }
   
   div.react-select__control:hover {

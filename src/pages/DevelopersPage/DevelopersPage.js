@@ -12,9 +12,9 @@ const DevelopersPage = () => {
         });
     }, []);
 
-    const elements = dataDev?.map(({ avatarUrl, name, position, _id }) => (
+    const elements = dataDev?.map(({ avatarURL, name, position, _id }) => (
         <li className={s.item} key={_id}>
-            <img className={s.img} src={avatarUrl} alt={name} width={250} />
+            <img className={s.img} src={avatarURL} alt={name} width={250} />
             <p className={s.text}>{name}</p>
             <p className={s.text}>{position}</p>
         </li>

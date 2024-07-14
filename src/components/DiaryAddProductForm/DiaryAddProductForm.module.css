@@ -24,11 +24,12 @@
     padding: 8px 0;
     border: none;
     /* color */
-    color: var(--second-color);
+    color: var(--input-color);
     border-bottom: 1px solid var(--border-color);
     /* font */
     font-weight: 700;
     line-height: 1.21;
+    background-color: var(--bg-color);
   }
   
   .input:focus,
@@ -38,7 +39,7 @@
   }
   
   .input::placeholder {
-    color: var(--second-color);
+    color: var(--input-color);
   }
   
   @media screen and (max-width: 320px) {

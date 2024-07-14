@@ -23,6 +23,7 @@
 .teamLogo {
   width: 60px;
   height: auto;
+  filter: drop-shadow(0 0 1px var(--logo-filter));
 }
 
 @media screen and (max-width: 768px) {

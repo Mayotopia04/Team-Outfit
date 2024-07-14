@@ -39,9 +39,9 @@ const RegistrationPage = () => {
         <>
           <div className={s.infoContainer}>
             <h3 className={s.title}>
-              {user.name}, thank you for registration. We've sent you a verification email.
+              {user.name}, thank you for your registration. We've sent you a verification email.
             </h3>
-            <p className={s.text}>If you've not recieve this email</p>
+            <p className={s.text}>If you've not received this email</p>
             <Button
               isPrimaryButton={false}
               text={`${text}`}

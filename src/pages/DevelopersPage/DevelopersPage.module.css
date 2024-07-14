@@ -1,24 +1,41 @@
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  text-align: center;
+}
+
 .title {
-    text-align: center;
-    margin: 50px 0 50px 0;
+  text-align: center;
+  margin: 20px 0 50px 0;
+  display: inline-flex;
+  align-items: center;
 }
 
 .list {
-    margin: -20px;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    flex-wrap: wrap;
+  margin: -10px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .item {
-    margin: 20px;
-    width: 200px;
-    box-shadow: 0px 0px 5px 1px var(--accent-color);
-    border-radius: 4px;
+  margin: 20px 45px;
+  width: 150px;
 }
 
 .text {
-    color: var(--main-color);
-    padding: 10px 0 10px 10px;
+  color: rgb(215, 139, 6);
+  padding: 10px 0 10px 10px;
 }
+
+.devName {
+  color: var(--main-color);
+  padding: 10px 5px 5px 5px;
+  font-weight: bold;
+}
+
+
+

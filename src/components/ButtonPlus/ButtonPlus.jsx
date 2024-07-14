@@ -1,3 +1,4 @@
+
 import PropTypes from 'prop-types';
 
 import svg from '../../assets/icons/sprite.svg';
@@ -19,3 +20,14 @@ ButtonPlus.propTypes = {
 };
 
 export default ButtonPlus;
+
+import React from 'react'
+
+const ButtonPlus = () => {
+    return (
+        <div>ButtonPlus</div>
+    )
+}
+
+export default ButtonPlus;
+

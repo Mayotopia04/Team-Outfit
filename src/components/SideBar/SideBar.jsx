@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { getDailyMeals } from 'redux/products/products-operations';
-import { DiaryDateСalendar } from '../';
+import DiaryDateСalendar from "../DiaryDateCalendar/DiaryDateCalendar";
 //import categories from '../../categories.json';
 import s from './SideBar.module.css';
 

@@ -1,0 +1,32 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--second-color);
+  padding-top: 20px;
+  padding-bottom: 40px;
+  width: 100%;
+}
+
+.footerContent {
+  display: flex;
+  align-items: center;
+}
+
+.link {
+  color: var(--accent-color);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.teamLogo {
+  width: 60px;
+  height: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    text-align: center;
+  }
+}

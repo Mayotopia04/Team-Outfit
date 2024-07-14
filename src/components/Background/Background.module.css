@@ -2,6 +2,7 @@
 .backgroundAuth,
 .backgroundDiaryCalc {
   min-height: 100vh;
+  position: relative;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
@@ -57,5 +58,80 @@
       background-image: url(../../assets/png/backgroundDiaryCalcDeskTop_x2.png),
         linear-gradient(to right, var(--bg-color) 59.6%, var(--scroll-color) 59.6%);
     }
+  }
+}
+
+/* .leafContainer {
+  position: absolute;
+  
+  z-index: 15;
+  overflow: hidden;
+} */
+
+.leaf {
+  position: absolute;
+  background-size: 100%;
+  z-index: 15;
+  overflow: hidden;
+  top: 0;
+  left: 50;
+  width: 100%;
+  height: 100%;
+}
+
+.leaf-first {
+  @extend .leaf;
+  right: 50vw;
+  width: 25px;
+  height: 155px;
+  background: url('../../assets/png/leaf-1.png') no-repeat;
+  offset-path: path('M0,0 C40,160 60,160 100,0');
+  offset-rotate: 200deg;
+  animation: bgAnimation 15s infinite alternate ease-in-out;
+}
+
+.leaf-second {
+  @extend .leaf;
+  top: 150px;
+  right: 50vw;
+  width: 56px;
+  height: 70px;
+  background: url('../../assets/png/leaf-2.png') no-repeat;
+  offset-path: path('M0,0 C40,160 60,160 100,0');
+  offset-rotate: 270deg;
+  animation: bgAnimation 22s infinite alternate ease-in-out;
+}
+
+.leaf-third {
+  @extend .leaf;
+  top: 650px;
+  right: 50vw;
+  width: 80px;
+  height: 118px;
+  background: url('../../assets/png/leaf-3.png') no-repeat;
+  offset-path: path('M0,0 C40,160 160,160 100,0');
+  offset-rotate: 0deg;
+  animation: bgAnimation 35s infinite alternate ease-in-out;
+}
+
+.leaf-fourth {
+  @extend .leaf;
+  top: 415px;
+  right: 88vw;
+  width: 56px;
+  height: 70px;
+  background: url('../../assets/png/leaf-4.png') no-repeat;
+  offset-path: path('M0,0 C70,120 50,100 200,0');
+  offset-rotate: 248deg;
+  animation: bgAnimation 30s infinite alternate ease-in-out;
+}
+
+@keyframes bgAnimation {
+  0% {
+    offset-distance: 0;
+  }
+
+  100% {
+    offset-distance: 100%;
   }
 }

@@ -40,4 +40,4 @@ export default function DailyCalorieIntake() {
       </NavLink>
     </>
   );
-}
+};

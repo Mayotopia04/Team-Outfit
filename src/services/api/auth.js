@@ -24,6 +24,12 @@ export const login = async data => {
   return result.data;
 };
 
+export const googleLogin = async data => {
+  const result = await instance.post('/users/googleLogin', data);
+  setToken(result.data.accessToken);
+  return result.data;
+};
+
 export const refresh = async data => {
   const result = await instance.post('/users/refresh', data);
   setToken(result.data.accessToken);
@@ -47,7 +53,7 @@ export const getActivationKey = async email => {
 };
 
 export const getKeyVerify = async key => {
-  const result = await instance.get(`/users/verify/${key}`);
+  const result = await instance.get(`/users/verifyKey/${key}`);
   return result.data;
 };
 

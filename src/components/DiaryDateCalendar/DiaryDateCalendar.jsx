@@ -1,4 +1,4 @@
-import s from './DiaryDateСalendar.module.css';
+import s from './DiaryDateCalendar.module.css';
 import DatePicker from 'react-datepicker';
 import { ReactComponent as NewCalendar } from 'assets/icons/calendar.svg';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 
 import { setDate } from '../../redux/products/products-slice';
 
-const DiaryDateСalendar = ({ location }) => {
+const DiaryDateCalendar = ({ location }) => {
   const { date } = useSelector(state => state.products);
   const dispatch = useDispatch();
   const [dateObject, setDateObject] = useState(() => new Date());
@@ -56,8 +56,8 @@ const DiaryDateСalendar = ({ location }) => {
   );
 };
 
-DiaryDateСalendar.propTypes = {
+DiaryDateCalendar.propTypes = {
   location: PropTypes.string.isRequired,
 };
 
-export default DiaryDateСalendar;
+export default DiaryDateCalendar;

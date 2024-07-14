@@ -12,57 +12,58 @@ import { setAccessToken, setRefreshToken } from 'redux/auth/auth-slice';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 const App = () => {
-  const [menuActive, setMenuActive] = useState(false);
-  const toggleNavMenu = () => {
-    setMenuActive(!menuActive);
-  };
-  const isLogin = useSelector(getLoginStatus);
-  const accessToken = useSelector(getAccessToken);
+    const [menuActive, setMenuActive] = useState(false);
+    const toggleNavMenu = () => {
+        setMenuActive(!menuActive);
+    };
+    const isLogin = useSelector(getLoginStatus);
+    const accessToken = useSelector(getAccessToken);
 
-  const [searchParams] = useSearchParams();
-  const accessTokenFromURL = searchParams.get('accessToken');
-  const refreshTokenFromURL = searchParams.get('refreshToken');
-  const dispatch = useDispatch();
+    const [searchParams] = useSearchParams();
+    const accessTokenFromURL = searchParams.get('accessToken');
+    const refreshTokenFromURL = searchParams.get('refreshToken');
+    const dispatch = useDispatch();
 
-  const showModal = useSelector(getModalStatus);
+    const showModal = useSelector(getModalStatus);
 
-  useEffect(() => {
-    const body = document.querySelector('#root');
-    if (showModal) {
-      disableBodyScroll(body);
-    } else {
-      enableBodyScroll(body);
-    }
-  }, [showModal]);
+    useEffect(() => {
+        const body = document.querySelector('#root');
+        if (showModal) {
+            disableBodyScroll(body);
+        } else {
+            enableBodyScroll(body);
+        }
+    }, [showModal]);
 
-  useEffect(() => {
-    if (accessTokenFromURL && refreshTokenFromURL) {
-      dispatch(setAccessToken(accessTokenFromURL));
-      dispatch(setRefreshToken(refreshTokenFromURL));
-    }
-  }, [accessTokenFromURL, refreshTokenFromURL, dispatch]);
+    useEffect(() => {
+        if (accessTokenFromURL && refreshTokenFromURL) {
+            dispatch(setAccessToken(accessTokenFromURL));
+            dispatch(setRefreshToken(refreshTokenFromURL));
+        }
+    }, [accessTokenFromURL, refreshTokenFromURL, dispatch]);
 
-  useEffect(() => {
-    if (!isLogin && accessToken) {
-      dispatch(getCurrentUser());
-    }
-  }, [dispatch, isLogin, accessToken]);
+    useEffect(() => {
+        if (!isLogin && accessToken) {
+            dispatch(getCurrentUser());
+        }
+    }, [dispatch, isLogin, accessToken]);
 
-  return (
-    <>
-      <Background>
-        <Header menuActive={menuActive} setMenuActive={setMenuActive} />
-        {menuActive && <BurgerMenu toggleNavMenu={toggleNavMenu} />}
-        <PagesRoutes />
-      </Background>
-      <ToastContainer
-        autoClose={2000}
-        hideProgressBar
-        position="top-center"
-        theme="colored"
-        transition={Zoom}
-      />
-    </>
-  );
+    return (
+        <>
+            <Background>
+                <Header menuActive={menuActive} setMenuActive={setMenuActive} />
+                {menuActive && <BurgerMenu toggleNavMenu={toggleNavMenu} />}
+                <PagesRoutes />
+            </Background>
+            <ToastContainer
+                autoClose={2000}
+                hideProgressBar
+                position="top-center"
+                theme="colored"
+                transition={Zoom}
+            />
+        </>
+    );
 };
+
 export default App;

@@ -5,7 +5,7 @@ import {
   ButtonPlus,
   Container,
   DiaryAddProductForm,
-  DiaryDateСalendar,
+  DiaryDateCalendar,
   DiaryProductsList,
   SideBar,
   Footer,
@@ -28,7 +28,7 @@ const DiaryPage = () => {
           <h1 className="visually-hidden">Diary Page</h1>
           <div className={s.diary}>
             <Container>
-              <DiaryDateСalendar location="diary" />
+              <DiaryDateCalendar location="diary" />
 
               {width > 767 && <DiaryAddProductForm />}
 
@@ -51,7 +51,7 @@ const DiaryPage = () => {
           <Container>
             <main className={s.main}>
               <div className={s.diary}>
-                <DiaryDateСalendar location="diary" />
+                <DiaryDateCalendar location="diary" />
                 <DiaryAddProductForm />
                 <DiaryProductsList />
               </div>

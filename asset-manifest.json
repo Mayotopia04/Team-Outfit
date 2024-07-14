@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Team-Outfit/static/css/main.f1b266a3.css",
-    "main.js": "/Team-Outfit/static/js/main.1e0e7e44.js",
+    "main.js": "/Team-Outfit/static/js/main.fffc9df8.js",
     "static/css/541.8ad94ca8.chunk.css": "/Team-Outfit/static/css/541.8ad94ca8.chunk.css",
     "static/js/541.cca08834.chunk.js": "/Team-Outfit/static/js/541.cca08834.chunk.js",
     "static/css/425.daccbb4e.chunk.css": "/Team-Outfit/static/css/425.daccbb4e.chunk.css",
@@ -39,7 +39,7 @@
     "static/media/burger.svg": "/Team-Outfit/static/media/burger.ad1b9ef925490361f5d1248d4b29075f.svg",
     "static/media/back-arrow.svg": "/Team-Outfit/static/media/back-arrow.3183c149a7a802048994a1056e58ede3.svg",
     "main.f1b266a3.css.map": "/Team-Outfit/static/css/main.f1b266a3.css.map",
-    "main.1e0e7e44.js.map": "/Team-Outfit/static/js/main.1e0e7e44.js.map",
+    "main.fffc9df8.js.map": "/Team-Outfit/static/js/main.fffc9df8.js.map",
     "541.8ad94ca8.chunk.css.map": "/Team-Outfit/static/css/541.8ad94ca8.chunk.css.map",
     "541.cca08834.chunk.js.map": "/Team-Outfit/static/js/541.cca08834.chunk.js.map",
     "425.daccbb4e.chunk.css.map": "/Team-Outfit/static/css/425.daccbb4e.chunk.css.map",
@@ -58,6 +58,6 @@
   },
   "entrypoints": [
     "static/css/main.f1b266a3.css",
-    "static/js/main.1e0e7e44.js"
+    "static/js/main.fffc9df8.js"
   ]
 }

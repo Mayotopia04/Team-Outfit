@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreact_homework_template=self.webpackChunkreact_homework_template||[]).push([[306],{4306:function(e,r,n){n.r(r),n.d(r,{default:function(){return i}});var t=n(6752),a="DiaryMobileForm_main__6+2DA",c=n(184),i=function(){return(0,c.jsx)(t.W2,{children:(0,c.jsx)("main",{className:a,children:(0,c.jsx)(t.E4,{})})})}}}]);
+//# sourceMappingURL=306.f64b591d.chunk.js.map

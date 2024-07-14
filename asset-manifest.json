@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Team-Outfit/static/css/main.8764a8b1.css",
-    "main.js": "/Team-Outfit/static/js/main.964af608.js",
+    "main.css": "/Team-Outfit/static/css/main.a0d83921.css",
+    "main.js": "/Team-Outfit/static/js/main.64868fdb.js",
     "static/css/541.8ad94ca8.chunk.css": "/Team-Outfit/static/css/541.8ad94ca8.chunk.css",
     "static/js/541.cca08834.chunk.js": "/Team-Outfit/static/js/541.cca08834.chunk.js",
     "static/css/425.daccbb4e.chunk.css": "/Team-Outfit/static/css/425.daccbb4e.chunk.css",
@@ -16,8 +16,8 @@
     "static/js/306.d00aae3e.chunk.js": "/Team-Outfit/static/js/306.d00aae3e.chunk.js",
     "static/css/270.e0e1754b.chunk.css": "/Team-Outfit/static/css/270.e0e1754b.chunk.css",
     "static/js/270.2e6310bb.chunk.js": "/Team-Outfit/static/js/270.2e6310bb.chunk.js",
-    "static/css/530.dede8f21.chunk.css": "/Team-Outfit/static/css/530.dede8f21.chunk.css",
-    "static/js/530.e4421b61.chunk.js": "/Team-Outfit/static/js/530.e4421b61.chunk.js",
+    "static/css/823.58328b09.chunk.css": "/Team-Outfit/static/css/823.58328b09.chunk.css",
+    "static/js/823.da653bb3.chunk.js": "/Team-Outfit/static/js/823.da653bb3.chunk.js",
     "static/media/backgroundAuthDeskTop_x2.png": "/Team-Outfit/static/media/backgroundAuthDeskTop_x2.faf783b01e11b16054d6.png",
     "static/media/backgroundTabAuth_x2.png": "/Team-Outfit/static/media/backgroundTabAuth_x2.a5ab5c194adb7f876d65.png",
     "static/media/backgroundTab_x2.png": "/Team-Outfit/static/media/backgroundTab_x2.ec9cdf5cd548fce7e64e.png",
@@ -27,6 +27,7 @@
     "static/media/backgroundTab_x1.png": "/Team-Outfit/static/media/backgroundTab_x1.a5f552b3e8990101ab15.png",
     "static/media/teamOutfit_Logo.png": "/Team-Outfit/static/media/teamOutfit_Logo.b356e80c67d89ce5ae8e.png",
     "static/media/gothampro.ttf": "/Team-Outfit/static/media/gothampro.4f71921a0823129cd8ba.ttf",
+    "static/media/teamOutfit_Logotxt.png": "/Team-Outfit/static/media/teamOutfit_Logotxt.f86626b2592e2bb93d0e.png",
     "static/media/backgroundDiaryCalcDeskTop_x2.png": "/Team-Outfit/static/media/backgroundDiaryCalcDeskTop_x2.bdab566ec95eb4e831ed.png",
     "static/media/backgroundDiaryTab_x2.png": "/Team-Outfit/static/media/backgroundDiaryTab_x2.c6c9f24b458e6ff6e678.png",
     "static/media/googleLogo.svg": "/Team-Outfit/static/media/googleLogo.86cc61447b5be25e30195ce26a98d6ea.svg",
@@ -39,8 +40,8 @@
     "static/media/close.svg": "/Team-Outfit/static/media/close.44d37eeb9e22a80e1ff4aeb8dfbf31ae.svg",
     "static/media/burger.svg": "/Team-Outfit/static/media/burger.ad1b9ef925490361f5d1248d4b29075f.svg",
     "static/media/back-arrow.svg": "/Team-Outfit/static/media/back-arrow.3183c149a7a802048994a1056e58ede3.svg",
-    "main.8764a8b1.css.map": "/Team-Outfit/static/css/main.8764a8b1.css.map",
-    "main.964af608.js.map": "/Team-Outfit/static/js/main.964af608.js.map",
+    "main.a0d83921.css.map": "/Team-Outfit/static/css/main.a0d83921.css.map",
+    "main.64868fdb.js.map": "/Team-Outfit/static/js/main.64868fdb.js.map",
     "541.8ad94ca8.chunk.css.map": "/Team-Outfit/static/css/541.8ad94ca8.chunk.css.map",
     "541.cca08834.chunk.js.map": "/Team-Outfit/static/js/541.cca08834.chunk.js.map",
     "425.daccbb4e.chunk.css.map": "/Team-Outfit/static/css/425.daccbb4e.chunk.css.map",
@@ -55,11 +56,11 @@
     "306.d00aae3e.chunk.js.map": "/Team-Outfit/static/js/306.d00aae3e.chunk.js.map",
     "270.e0e1754b.chunk.css.map": "/Team-Outfit/static/css/270.e0e1754b.chunk.css.map",
     "270.2e6310bb.chunk.js.map": "/Team-Outfit/static/js/270.2e6310bb.chunk.js.map",
-    "530.dede8f21.chunk.css.map": "/Team-Outfit/static/css/530.dede8f21.chunk.css.map",
-    "530.e4421b61.chunk.js.map": "/Team-Outfit/static/js/530.e4421b61.chunk.js.map"
+    "823.58328b09.chunk.css.map": "/Team-Outfit/static/css/823.58328b09.chunk.css.map",
+    "823.da653bb3.chunk.js.map": "/Team-Outfit/static/js/823.da653bb3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8764a8b1.css",
-    "static/js/main.964af608.js"
+    "static/css/main.a0d83921.css",
+    "static/js/main.64868fdb.js"
   ]
 }

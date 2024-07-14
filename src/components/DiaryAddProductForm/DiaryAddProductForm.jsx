@@ -78,7 +78,7 @@ const DiaryAddProductForm = () => {
     option: (styles, { data }) => {
       return {
         ...styles,
-        backgroundColor: data.color ? data.color : 'transparent',
+        backgroundColor: data.color ? data.color : 'white',
       };
     },
   };

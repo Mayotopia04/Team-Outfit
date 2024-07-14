@@ -1,22 +1,23 @@
-/* Container.module.css */
-.ContainerStyled {
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 20px;
+.container {
   min-width: 320px;
-  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
 }
-
-@media (min-width: 768px) {
-  .ContainerStyled {
-    padding: 0 32px;
-    max-width: 768px;
+@media screen and (min-width: 480px) {
+  .container {
+    max-width: 480px;
   }
 }
-
-@media (min-width: 1024px) {
-  .ContainerStyled {
-    padding: 0 16px;
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding: 0 32px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .container {
     max-width: 1280px;
+    padding: 0 16px;
   }
 }

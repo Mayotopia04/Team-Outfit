@@ -9,6 +9,7 @@
     font-weight: 700;
     line-height: 0.95;
     padding: 15px 18px 13px 0;
+    color: var(--main-color)
 }
 
 .text::after {
@@ -28,10 +29,11 @@
     border: none;
     font-weight: 700;
     line-height: 0.95;
+    color: var(--second-color);
 }
 
 .btn:hover {
-    color: var(--second-color);
+    color: var(--accent-color);
 }
 
 .btn:not(:last-child) {

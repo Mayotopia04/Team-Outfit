@@ -7,10 +7,12 @@
 }
 
 .title {
+  color: var(--main-color);
   text-align: center;
   margin: 20px 0 50px 0;
   display: inline-flex;
   align-items: center;
+
 }
 
 .list {

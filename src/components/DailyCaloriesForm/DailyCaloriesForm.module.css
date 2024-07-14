@@ -77,9 +77,8 @@
 }
 
 .input::placeholder {
-  color: var(--second-color);
+    color: var(--second-color);
 }
-
 @media screen and (min-width: 768px) {
   .input {
     padding-bottom: 20px;

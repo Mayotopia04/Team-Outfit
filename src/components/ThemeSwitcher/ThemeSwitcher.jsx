@@ -19,25 +19,26 @@ const ThemeSwitcher = () => {
         const root = document.documentElement;
         switch (theme) {
             case 'dark':
-                root.style.setProperty('--main-color', '#ffffff');
-                root.style.setProperty('--second-color', '#7070ce');
+                root.style.setProperty('--main-color', '#EB5B00');
+                root.style.setProperty('--second-color', '#ffff');
                 root.style.setProperty('--bg-color', '#2d2f30');
                 root.style.setProperty('--scroll-color', '#181717');
-                root.style.setProperty('--third-color', '#ffff');
+                root.style.setProperty('--third-color', '#1164bcdb');
                 root.style.setProperty('--input-color', '#FFD35A');
                 root.style.setProperty('--option-color', '#EB5B00');
+                root.style.setProperty('--logo-filter', 'orange');
                 // Add other color properties for dark theme
-
                 break;
 
             default:
-                root.style.setProperty('--main-color', '#212121');
                 root.style.setProperty('--second-color', '#9b9faa');
+                root.style.setProperty('--main-color', '#212121');
                 root.style.setProperty('--bg-color', '#fff');
                 root.style.setProperty('--scroll-color', '#f0f1f3');
                 root.style.setProperty('--third-color', '#264061');
                 root.style.setProperty('--input-color', '#9b9faa');
                 root.style.setProperty('--option-color', '#fbc0414d');
+                root.style.setProperty('--logo-filter', '#ffff');
                 break;
         }
     };

@@ -81,11 +81,11 @@
 
 .leaf-first {
   @extend .leaf;
-  right: 50vw;
+  right: 60vw;
   width: 25px;
-  height: 155px;
+  height: 45px;
   background: url('../../assets/png/leaf-1.png') no-repeat;
-  offset-path: path('M0,0 C40,160 60,160 100,0');
+  offset-path: path('M10,100 C40,260 60,260 90,100');
   offset-rotate: 200deg;
   animation: bgAnimation 15s infinite alternate ease-in-out;
 }
@@ -94,8 +94,8 @@
   @extend .leaf;
   top: 150px;
   right: 50vw;
-  width: 56px;
-  height: 70px;
+  width: 36px;
+  height: 50px;
   background: url('../../assets/png/leaf-2.png') no-repeat;
   offset-path: path('M0,0 C40,160 60,160 100,0');
   offset-rotate: 270deg;
@@ -106,8 +106,8 @@
   @extend .leaf;
   top: 650px;
   right: 50vw;
-  width: 80px;
-  height: 118px;
+  width: 60px;
+  height: 60px;
   background: url('../../assets/png/leaf-3.png') no-repeat;
   offset-path: path('M0,0 C40,160 160,160 100,0');
   offset-rotate: 0deg;

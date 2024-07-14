@@ -18,11 +18,11 @@ const persistedAuthReducer = persistReducer(persistAuthConfig, authReducer);
 
 
 const persistThemeSwitch = {
-  key: 'theme',
-  storage,
+    key: 'theme',
+    storage,
 };
 
-const persistedThemeSwitcher = persistReducer(persistThemeSwitch,themeSliceReducer)
+const persistedThemeSwitcher = persistReducer(persistThemeSwitch, themeSliceReducer)
 
 
 const rootReducer = combineReducers({

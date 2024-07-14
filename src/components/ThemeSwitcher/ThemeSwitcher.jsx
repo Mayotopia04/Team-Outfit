@@ -23,10 +23,9 @@ const ThemeSwitcher = () => {
             root.style.setProperty('--second-color', '#7070ce');
             root.style.setProperty('--bg-color', '#2d2f30');
             root.style.setProperty('--scroll-color', '#181717');
-            root.style.setProperty('--accent-color', '#c707fc');
-            root.style.setProperty('--btn-box-shadow', '0px 4px 10px rgb(92, 88, 93)');
-            root.style.setProperty('--border-color', '#fff');
-            root.style.setProperty('--third-color', '#3680a8');
+            root.style.setProperty('--third-color', '#ffff');
+            root.style.setProperty('--input-color', '#FFD35A');
+             root.style.setProperty('--option-color', '#EB5B00');
             // Add other color properties for dark theme
 
             break;
@@ -36,10 +35,9 @@ const ThemeSwitcher = () => {
             root.style.setProperty('--second-color', '#9b9faa');
             root.style.setProperty('--bg-color', '#fff');
             root.style.setProperty('--scroll-color', '#f0f1f3');
-            root.style.setProperty('--accent-color', '#fc842d');
-            root.style.setProperty('--btn-box-shadow', '0px 4px 10px rgba(252, 132, 45, 0.5)');
-            root.style.setProperty('--border-color', '#e0e0e0');
             root.style.setProperty('--third-color', '#264061');
+            root.style.setProperty('--input-color', '#9b9faa');
+            root.style.setProperty('--option-color', '#fbc0414d');
             break;
         }
   };

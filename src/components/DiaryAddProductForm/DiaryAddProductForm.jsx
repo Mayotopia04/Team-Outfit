@@ -24,7 +24,7 @@ const DiaryAddProductForm = () => {
       return {
         value: i.title,
         label: `${i.title} *`,
-        color: 'rgba(251, 192, 65, 0.3)',
+        color: 'var(--option-color)',
       };
     } else {
       return {

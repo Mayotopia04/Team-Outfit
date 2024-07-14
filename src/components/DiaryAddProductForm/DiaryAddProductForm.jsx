@@ -4,7 +4,9 @@ import Select from 'react-select';
 import debounce from 'lodash.debounce';
 
 import { getProductsByQuery, addMeal } from '../../redux/products/products-operations';
-import useWindowDimensions from '../../services/hooks/useWindowDimensions';
+//import useWindowDimensions from '../../services/hooks/useWindowDimensions';
+import useWindowDimensions from 'services/api/hooks/useWindowDimensions';
+
 import { Button, ButtonPlus } from 'components';
 import s from './DiaryAddProductForm.module.css';
 

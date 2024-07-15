@@ -5,8 +5,6 @@ import debounce from 'lodash.debounce';
 
 import { getProductsByQuery, addMeal } from '../../redux/products/products-operations';
 import useWindowDimensions from "../../services/hooks/useWindowDimensions.js";
-//import useWindowDimensions from 'services/hooks/useWindowDimensions';
-
 import { Button, ButtonPlus } from 'components';
 import s from './DiaryAddProductForm.module.css';
 

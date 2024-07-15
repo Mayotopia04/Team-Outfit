@@ -12,8 +12,6 @@ const BurgerMenu = ({ toggleNavMenu }) => {
   const elements = links
     .filter(item => item.private)
     .map(({ id, to, text }) => (
-      // <NavLink className={getLinkClassName} to={to} onClick={() => setMenuActive(!menuActive)}>
-      // так почему-то не работает(происходит ошибка и перезагрузка страницы), нужна функция обертка
       <li className={s.item} key={id}>
         <NavLink className={getLinkClassName} to={to} onClick={() => toggleNavMenu()}>
           {text}
@@ -21,7 +19,6 @@ const BurgerMenu = ({ toggleNavMenu }) => {
       </li>
     ));
   return createPortal(
-    // <div className={isActiveBurgerMenu}>
     <div className={s.overlay}>
       <div className={s.menuContent}>
         <ul className={s.nav}>{elements}</ul>

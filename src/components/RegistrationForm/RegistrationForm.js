@@ -125,12 +125,6 @@ const RegistrationForm = () => {
                   handleSubmit();
                 }}
               />
-              {/* <a className={s.googleBtn} href={`${REACT_APP_BACKEND_URL}/users/google`}>
-                <img className={s.googleLogo} src={GoogleLogo} alt="Google logo" />
-              </a>
-              <a className={s.googleBtn} href={`${REACT_APP_BACKEND_URL}/users/facebook`}>
-                <img className={s.googleLogo} src={FacebookText} alt="Facebook logo" />
-              </a> */}
             </div>
           </Form>
         )}

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // const { REACT_APP_BACKEND_URL = 'http://localhost:4000/api' } = process.env;
-const REACT_APP_BACKEND_URL = "https://team-outfit-slim-mom-backend.onrender.com/api";
+const { REACT_APP_BACKEND_URL = "https://team-outfit-slim-mom-backend.onrender.com/api" } = process.env;
   
 const instance = axios.create({
     baseURL: REACT_APP_BACKEND_URL,

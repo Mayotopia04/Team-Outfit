@@ -1,8 +1,142 @@
+https://github.com/Mayotopia04/Team-Outfit/pull/1
+Arvi's Code for Project OutFit #1
+
+https://github.com/Mayotopia04/Team-Outfit/pull/2
+folder layout #2
+
+https://github.com/Mayotopia04/Team-Outfit/pull/3
+ruby updated background, calculator, calendar and datepicker #3
+
+https://github.com/Mayotopia04/Team-Outfit/pull/4
+Added pull_request_list.txt to .gitignore #4
+
 https://github.com/Mayotopia04/Team-Outfit/pull/5
+Rene #5
+
+https://github.com/Mayotopia04/Team-Outfit/pull/6
+Mitch adding diary codes #6
+
+https://github.com/Mayotopia04/Team-Outfit/pull/7
+Cindy #7
+
+https://github.com/Mayotopia04/Team-Outfit/pull/8
+John branch #8
+
+https://github.com/Mayotopia04/Team-Outfit/pull/9
+Update SideBar.module.scss #9
+
+https://github.com/Mayotopia04/Team-Outfit/pull/10
+Charlton ForgotPasswordPage Initial #10
+
+
+https://github.com/Mayotopia04/Team-Outfit/pull/11
+John branch #11
+
+
+https://github.com/Mayotopia04/Team-Outfit/pull/12
+Rey Themeswitcher (light/dark mode) #12
+
+https://github.com/Mayotopia04/Team-Outfit/pull/13
+Mayona Update App.jsx #13
+
+https://github.com/Mayotopia04/Team-Outfit/pull/14
+Mam Arvi updated homepage and sidebar
+
+https://github.com/Mayotopia04/Team-Outfit/pull/15
+Mitch - Modified codes in the diary page and diary components. #15
+
+https://github.com/Mayotopia04/Team-Outfit/pull/16
+From Bhie-branch: updated additonal head, background, daily calorie intake and calculat… #16
 
 https://github.com/Mayotopia04/Team-Outfit/pull/17
+burger menu #17
+
 https://github.com/Mayotopia04/Team-Outfit/pull/18
+update button and button plus #18
 
-https://github.com/Mayotopia04/Team-Outfit/pull/20
+https://github.com/Mayotopia04/Team-Outfit/pull/19
+John branch #19
 
 
+https://github.com/Mayotopia04/Team-Outfit/pull/20/
+Rene loader update #20
+
+https://github.com/Mayotopia04/Team-Outfit/pull/21
+Rey-Themeswitcher- new/revised #21
+
+https://github.com/Mayotopia04/Team-Outfit/pull/22
+John branch #22
+
+https://github.com/Mayotopia04/Team-Outfit/pull/23
+John branch #23
+
+https://github.com/Mayotopia04/Team-Outfit/pull/24
+mayo Update auth-operations.js #24
+
+https://github.com/Mayotopia04/Team-Outfit/pull/25
+mayo update services #25
+
+https://github.com/Mayotopia04/Team-Outfit/pull/26
+mayo removed a folder test1 #26
+
+https://github.com/Mayotopia04/Team-Outfit/pull/27
+mayo returned files test1 #27
+
+https://github.com/Mayotopia04/Team-Outfit/pull/28
+mayo Create useWindowDimensions.js #28
+
+https://github.com/Mayotopia04/Team-Outfit/pull/29
+mayo Update DiaryAddProductForm.jsx #29
+
+https://github.com/Mayotopia04/Team-Outfit/pull/30
+mayo datepicker #30
+
+https://github.com/Mayotopia04/Team-Outfit/pull/31
+mayo update folders #31
+
+https://github.com/Mayotopia04/Team-Outfit/pull/32
+John branch #32
+
+https://github.com/Mayotopia04/Team-Outfit/pull/33
+from bhie-branch: added background animation and teamlogo on footer #33
+
+https://github.com/Mayotopia04/Team-Outfit/pull/34
+mayo updated dapf and sb #34
+
+https://github.com/Mayotopia04/Team-Outfit/pull/35
+mayo animatecss #35
+
+https://github.com/Mayotopia04/Team-Outfit/pull/36
+mayo proute proute #36
+
+https://github.com/Mayotopia04/Team-Outfit/pull/37
+mayo Update Container.module.css #37
+
+
+https://github.com/Mayotopia04/Team-Outfit/pull/38
+John added registration #38
+
+https://github.com/Mayotopia04/Team-Outfit/pull/39
+mayo Update RegistrationPage.js #39
+
+https://github.com/Mayotopia04/Team-Outfit/pull/40
+Update DiaryDateCalendar.module.css #40
+
+
+https://github.com/Mayotopia04/Team-Outfit/pull/41
+from bhie-branch: updated favicon and developer's page #41
+
+https://github.com/Mayotopia04/Team-Outfit/pull/42/
+Rey branch #42
+
+https://github.com/Mayotopia04/Team-Outfit/pull/43
+mayo Update DiaryAddProductForm.jsx #43
+
+https://github.com/Mayotopia04/Team-Outfit/pull/44
+mayo Update index.css #44
+
+https://github.com/Mayotopia04/Team-Outfit/pull/45
+rey Update ThemeSwitcher.jsx #45
+
+https://github.com/Mayotopia04/Team-Outfit/pull/46
+rey dark theme on login/registration form #46

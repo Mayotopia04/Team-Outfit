@@ -47,6 +47,7 @@
   
   .icon {
     stroke: black;
+    fill: var(--second-color);
     transition: all 250ms linear;
   }
   
@@ -70,5 +71,4 @@
       background: none;
       border: none;
     }
-  }
-  
+  } 

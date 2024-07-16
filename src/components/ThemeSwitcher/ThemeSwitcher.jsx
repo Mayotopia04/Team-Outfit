@@ -9,7 +9,7 @@ const ThemeSwitcher = () => {
     const dispatch = useDispatch();
 
     const selectedTheme = useSelector(getTheme);
-    console.log(selectedTheme)
+
 
     const SwitchTheme = () => {
         dispatch(changeTheme());

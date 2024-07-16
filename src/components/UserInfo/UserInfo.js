@@ -8,8 +8,9 @@ const UserInfo = () => {
     const dispatch = useDispatch();
     return (
         <div className={s.userinfo}>
-            <ThemeSwitcher/>
+         
             <div className={s.block}>
+                   <ThemeSwitcher/>
                 <p className={s.text}>{name}</p>
                 <button className={s.btn} onClick={() => dispatch(handleLogout())}>
                     Exit

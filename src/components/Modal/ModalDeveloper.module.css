@@ -1,0 +1,28 @@
+.wrapper{
+    width: 100vh;
+    height: 100vh;
+  }
+.modalContent{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+.name{
+    margin-top: 20px;
+    color: var(--main-color);
+}
+.email{
+    margin-top: 10px;
+    color: var(--second-color);
+}
+.position{
+    color: var(--second-color)
+}
+
+@media screen and (max-width: 560px){
+   
+    .img{
+        width: 200px;
+    }
+}

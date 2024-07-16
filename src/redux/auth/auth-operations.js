@@ -31,6 +31,7 @@ export const handleLogin = createAsyncThunk('users/login', async (data, { reject
 
 export const handleGoogleLogin = createAsyncThunk('users/googleLogin', async (data, { rejectWithValue }) => {
   try {
+    console.log("calling users googleLogin");
     const result = await api.googleLogin(data);
     return result;
   } catch (error) {

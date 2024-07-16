@@ -44,6 +44,7 @@ const LoginForm = () => {
 
 const handleSuccess = (response) => {
     console.log('Login Success:', response);
+  dispatch(handleGoogleLogin({ googleAccessToken: response.credential })).then(a => setErrorMessage(a?.payload));
   };
 
   const handleFailure = (error) => {

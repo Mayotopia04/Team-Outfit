@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Team-Outfit/static/css/main.d65b1f9a.css",
-    "main.js": "/Team-Outfit/static/js/main.020b42f5.js",
+    "main.css": "/Team-Outfit/static/css/main.37c34636.css",
+    "main.js": "/Team-Outfit/static/js/main.7254aa95.js",
     "static/css/541.8ad94ca8.chunk.css": "/Team-Outfit/static/css/541.8ad94ca8.chunk.css",
     "static/js/541.fa91f42d.chunk.js": "/Team-Outfit/static/js/541.fa91f42d.chunk.js",
     "static/css/425.daccbb4e.chunk.css": "/Team-Outfit/static/css/425.daccbb4e.chunk.css",
@@ -40,8 +40,8 @@
     "static/media/close.svg": "/Team-Outfit/static/media/close.44d37eeb9e22a80e1ff4aeb8dfbf31ae.svg",
     "static/media/burger.svg": "/Team-Outfit/static/media/burger.ad1b9ef925490361f5d1248d4b29075f.svg",
     "static/media/back-arrow.svg": "/Team-Outfit/static/media/back-arrow.3183c149a7a802048994a1056e58ede3.svg",
-    "main.d65b1f9a.css.map": "/Team-Outfit/static/css/main.d65b1f9a.css.map",
-    "main.020b42f5.js.map": "/Team-Outfit/static/js/main.020b42f5.js.map",
+    "main.37c34636.css.map": "/Team-Outfit/static/css/main.37c34636.css.map",
+    "main.7254aa95.js.map": "/Team-Outfit/static/js/main.7254aa95.js.map",
     "541.8ad94ca8.chunk.css.map": "/Team-Outfit/static/css/541.8ad94ca8.chunk.css.map",
     "541.fa91f42d.chunk.js.map": "/Team-Outfit/static/js/541.fa91f42d.chunk.js.map",
     "425.daccbb4e.chunk.css.map": "/Team-Outfit/static/css/425.daccbb4e.chunk.css.map",
@@ -60,7 +60,7 @@
     "954.24a44164.chunk.js.map": "/Team-Outfit/static/js/954.24a44164.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d65b1f9a.css",
-    "static/js/main.020b42f5.js"
+    "static/css/main.37c34636.css",
+    "static/js/main.7254aa95.js"
   ]
 }

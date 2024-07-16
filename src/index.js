@@ -15,10 +15,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <BrowserRouter basename="/">
+        <BrowserRouter basename="/Team-Outfit">
           <GoogleOAuthProvider clientId="424051864171-nssd8rqgukkpunne874lqup4akl232s6.apps.googleusercontent.com">
             <ThemeProvider>
-            <App />
+              <App />
             </ThemeProvider>
           </GoogleOAuthProvider>
         </BrowserRouter>

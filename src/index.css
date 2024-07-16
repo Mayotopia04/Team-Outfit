@@ -4,6 +4,7 @@
   --main-color: #212121;
   --second-color: #9b9faa;
   --third-color: #264061;
+  --third-color1: #264061;
 
   --accent-color: #fc842d;
 
@@ -27,7 +28,7 @@
 
   --logo-filter: #ffffff;
 
-  --modal-bg:#494646;
+  --modal-bg: #494646;
 }
 
 @font-face {
@@ -66,7 +67,8 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
 
 ul {

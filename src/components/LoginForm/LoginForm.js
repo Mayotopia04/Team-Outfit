@@ -10,6 +10,7 @@ import { handleLogin } from '../../redux/auth/auth-operations';
 import { Link } from 'react-router-dom';
 import { useGoogleLogin } from '@react-oauth/google';
 import { handleGoogleLogin } from '../../redux/auth/auth-operations';
+import { GoogleLogin } from '@react-oauth/google';
 
 const SignupSchema = Yup.object().shape({
     email: Yup.string().email('Invalid email').required('Email is required'),
@@ -111,6 +112,8 @@ const LoginForm = () => {
                             <button className={s.btn} onClick={login} >
                                 <img className={s.socialLogo} src={GoogleLogo} alt="Google logo" />
                             </button>
+
+                                  <GoogleLogin onSuccess={handleSuccess} onError={handleFailure} />
                         </div>
 
                     </Form>

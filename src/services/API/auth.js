@@ -1,6 +1,9 @@
 import axios from 'axios';
 
-const { REACT_APP_BACKEND_URL = 'http://localhost:4000/api' } = process.env;
+// const { REACT_APP_BACKEND_URL = 'http://localhost:4000/api' } = process.env;
+const REACT_APP_BACKEND_URL =
+  'https://team-outfit-slim-mom-backend.onrender.com/api';
+
 const instance = axios.create({
   baseURL: REACT_APP_BACKEND_URL,
 });
@@ -19,6 +22,12 @@ export const signup = async data => {
 
 export const login = async data => {
   const result = await instance.post('/users/login', data);
+  setToken(result.data.accessToken);
+  return result.data;
+};
+
+export const googleLogin = async data => {
+  const result = await instance.post('/users/googleLogin', data);
   setToken(result.data.accessToken);
   return result.data;
 };
@@ -46,7 +55,7 @@ export const getActivationKey = async email => {
 };
 
 export const getKeyVerify = async key => {
-  const result = await instance.get(`/users/verify/${key}`);
+  const result = await instance.get(`/users/verifyKey/${key}`);
   return result.data;
 };
 

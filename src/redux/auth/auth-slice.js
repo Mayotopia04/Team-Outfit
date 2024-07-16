@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import {
   handleRegistration,
   handleLogin,
+  handleGoogleLogin,
   handleLogout,
   getCurrentUser,
   getCalorieIntake,
@@ -74,6 +75,23 @@ const authSlice = createSlice({
         store.userDailyDiet = payload.dailyDiet;
       })
       .addCase(handleLogin.rejected, (store, { payload }) => {
+        store.isLoading = false;
+        store.isError = payload;
+      })
+
+      .addCase(handleGoogleLogin.pending, store => {
+        store.isLoading = true;
+        store.isError = null;
+      })
+      .addCase(handleGoogleLogin.fulfilled, (store, { payload }) => {
+        store.user = payload.user;
+        store.accessToken = payload.accessToken;
+        store.isLoading = false;
+        store.isLogin = true;
+        store.refreshToken = payload.refreshToken;
+        store.userDailyDiet = payload.dailyDiet;
+      })
+      .addCase(handleGoogleLogin.rejected, (store, { payload }) => {
         store.isLoading = false;
         store.isError = payload;
       })

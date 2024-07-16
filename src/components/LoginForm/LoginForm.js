@@ -10,7 +10,7 @@ import { handleLogin } from '../../redux/auth/auth-operations';
 import { Link } from 'react-router-dom';
 import { useGoogleLogin } from '@react-oauth/google';
 import { handleGoogleLogin } from '../../redux/auth/auth-operations';
-import { GoogleLogin } from '@react-oauth/google';
+//import { GoogleLogin } from '@react-oauth/google';
 
 const SignupSchema = Yup.object().shape({
     email: Yup.string().email('Invalid email').required('Email is required'),
@@ -42,14 +42,14 @@ const LoginForm = () => {
         onError: (error) => console.error('Login Failed:', error),
     });
 
-const handleSuccess = (response) => {
-    console.log('Login Success:', response);
-  dispatch(handleGoogleLogin({ googleAccessToken: response.credential })).then(a => setErrorMessage(a?.payload));
-  };
+// const handleSuccess = (response) => {
+//     console.log('Login Success:', response);
+//   dispatch(handleGoogleLogin({ googleAccessToken: response.credential })).then(a => setErrorMessage(a?.payload));
+//   };
 
-  const handleFailure = (error) => {
-    console.error('Login Failed:', error);
-  };
+//   const handleFailure = (error) => {
+//     console.error('Login Failed:', error);
+//   };
   
     return (
         <>
@@ -122,7 +122,7 @@ const handleSuccess = (response) => {
                                 <img className={s.socialLogo} src={GoogleLogo} alt="Google logo" />
                             </button>
 
-                                  <GoogleLogin onSuccess={handleSuccess} onError={handleFailure} />
+{/* <GoogleLogin onSuccess={handleSuccess} onError={handleFailure} /> */}
                         </div>
 
                     </Form>

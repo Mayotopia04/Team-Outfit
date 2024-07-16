@@ -27,6 +27,7 @@ export const login = async data => {
 };
 
 export const googleLogin = async data => {
+  console.log("maybemaybe googlelogin");
     const result = await instance.post('/users/googleLogin', data);
     setToken(result.data.accessToken);
     return result.data;

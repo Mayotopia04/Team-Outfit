@@ -42,6 +42,14 @@ const LoginForm = () => {
         onError: (error) => console.error('Login Failed:', error),
     });
 
+const handleSuccess = (response) => {
+    console.log('Login Success:', response);
+  };
+
+  const handleFailure = (error) => {
+    console.error('Login Failed:', error);
+  };
+  
     return (
         <>
             <Formik

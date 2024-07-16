@@ -3,7 +3,7 @@ import s from './PageLoader.module.css';
 const PageLoader = () => {
   return (
     <div className={s.circle}>
-      LOADING
+      Outfit
       <span className={s.dote}></span>
     </div>
   );

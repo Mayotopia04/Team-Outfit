@@ -37,7 +37,7 @@ const Header = ({ menuActive, setMenuActive }) => {
               className={s.burgerBtn}
               onClick={() => setMenuActive(!menuActive)}
             >
-              {menuActive ? <Close /> : <Burger />}
+              {menuActive ? <Close className={s.closeBtn } /> : <Burger className={s.iconburger } />}
             </button>
           )}
         </div>

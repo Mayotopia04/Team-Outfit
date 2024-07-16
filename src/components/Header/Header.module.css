@@ -55,7 +55,17 @@
 .burgerBtn {
   border: transparent;
   padding: 14px 0;
+ 
 }
+
+.iconburger > path{
+  fill: var(--main-color);
+}
+
+.closeBtn > path{
+  stroke: var(--main-color);
+}
+
 @media screen and (min-width: 480px) {
   .block {
     max-width: 480px;

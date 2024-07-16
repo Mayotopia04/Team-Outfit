@@ -12,7 +12,6 @@ export const themeSlice = createSlice({
     reducers: {
         changeTheme: (state, _actions) => {
             state.mode = state.mode === 'light' ? 'dark' : 'light';
-            // console.log(state.mode);
         }
     }
 });

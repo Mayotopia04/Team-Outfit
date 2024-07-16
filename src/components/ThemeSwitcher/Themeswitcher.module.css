@@ -1,26 +1,20 @@
-@media screen and (min-width: 1280px) {
-    .wrapper {
-        position: relative;
-        top: -20px;
-        right: 40px;
-    }
-}
+
+ @media screen and (min-width: 1280px) {
+     .wrapper {
+         position: relative;
+         top: -45px;
+     }
+ }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
     .wrapper {
-        position: absolute;
-        top: 28px;
-        right: 220px;
+     margin-right: 20%;
     }
 }
 
 @media screen and (max-width: 767px) {
     .wrapper {
-        width: 280px;
-        position: absolute;
-        top: 5px;
-        right: 5px;
-        transform: translateX(10%);
+       margin-right: 10%;
     }
 }
 

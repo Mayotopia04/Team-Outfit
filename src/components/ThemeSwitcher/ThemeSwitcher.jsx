@@ -27,6 +27,7 @@ const ThemeSwitcher = () => {
                 root.style.setProperty('--input-color', '#FFD35A');
                 root.style.setProperty('--option-color', '#EB5B00');
                 root.style.setProperty('--logo-filter', 'orange');
+                root.style.setProperty('--modal-bg', '#494646');
                 // Add other color properties for dark theme
                 break;
 
@@ -39,6 +40,7 @@ const ThemeSwitcher = () => {
                 root.style.setProperty('--input-color', '#9b9faa');
                 root.style.setProperty('--option-color', '#f8af28');
                 root.style.setProperty('--logo-filter', '#ffff');
+                root.style.setProperty('--modal-bg', '#fff');
                 break;
         }
     };

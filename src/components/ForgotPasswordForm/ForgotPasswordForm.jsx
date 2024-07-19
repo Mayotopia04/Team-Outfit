@@ -4,7 +4,11 @@ import eyeClosed from 'assets/icons/eye-blocked.svg';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { getEmailStatus, getKeyStatus } from 'redux/auth/auth-selector';
-const ForgotPasswordForm = ({ handleSubmitEmail, handleSubmitKey, handleSubmitPassword }) => {
+const ForgotPasswordForm = ({
+  handleSubmitEmail,
+  handleSubmitKey,
+  handleSubmitPassword,
+}) => {
   const emailStatus = useSelector(getEmailStatus);
   const keyStatus = useSelector(getKeyStatus);
 
@@ -40,15 +44,23 @@ const ForgotPasswordForm = ({ handleSubmitEmail, handleSubmitKey, handleSubmitPa
 
   const checkKeyDisabled = key.length !== 36;
   const checkEmail =
-    email.length >= 8 && email.split('').includes('@') & email.split('').includes('.');
+    email.length >= 8 &&
+    email.split('').includes('@') & email.split('').includes('.');
   const checkPassLength = password.length >= 8;
   const checkRepeatPassLength = repeatPassword.length >= 8;
   const samePassword =
-    keyStatus && checkPassLength && checkRepeatPassLength && password !== repeatPassword;
+    keyStatus &&
+    checkPassLength &&
+    checkRepeatPassLength &&
+    password !== repeatPassword;
   return (
     <>
       <div className={s.block}>
-        {!emailStatus && <p className={s.text}>The activation key will be send to your email</p>}
+        {!emailStatus && (
+          <p className={s.text}>
+            The activation key will be sent to your email
+          </p>
+        )}
         <form onSubmit={onSubmitEmail} className={s.form}>
           <input
             onChange={handleChange}
@@ -66,7 +78,9 @@ const ForgotPasswordForm = ({ handleSubmitEmail, handleSubmitKey, handleSubmitPa
             Send key
           </button>
         </form>
-        {emailStatus && <p className={s.status}>The activation key sent to your email</p>}
+        {emailStatus && (
+          <p className={s.status}>The activation key is sent to your email</p>
+        )}
       </div>
       {emailStatus && (
         <div className={s.block}>
@@ -151,7 +165,9 @@ const ForgotPasswordForm = ({ handleSubmitEmail, handleSubmitKey, handleSubmitPa
               Save password
             </button>
           </form>
-          {samePassword && <p className={s.error}>Passwords are not the same. Check it</p>}
+          {samePassword && (
+            <p className={s.error}>Passwords don't match . Please try again</p>
+          )}
         </div>
       )}
     </>

@@ -58,7 +58,7 @@ const ForgotPasswordForm = ({
       <div className={s.block}>
         {!emailStatus && (
           <p className={s.text}>
-            The activation key will be send to your email
+            The activation key will be sent to your email
           </p>
         )}
         <form onSubmit={onSubmitEmail} className={s.form}>
@@ -79,7 +79,7 @@ const ForgotPasswordForm = ({
           </button>
         </form>
         {emailStatus && (
-          <p className={s.status}>The activation key sent to your email</p>
+          <p className={s.status}>The activation key is sent to your email</p>
         )}
       </div>
       {emailStatus && (
